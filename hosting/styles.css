@@ -404,6 +404,10 @@ svg {
   padding: 22px;
 }
 
+.feature-card {
+  overflow: hidden;
+}
+
 .feature-card h3 {
   margin: 0 0 10px;
 }
@@ -411,6 +415,15 @@ svg {
 .feature-card p {
   margin: 0;
   color: var(--muted);
+}
+
+.feature-shot {
+  width: calc(100% + 44px);
+  margin: -22px -22px 18px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+  background: #e7dfd0;
 }
 
 .feature-icon {
