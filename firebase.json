@@ -7,23 +7,6 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "redirects": [
-      {
-        "source": "/terms",
-        "destination": "/terms",
-        "type": 301
-      },
-      {
-        "source": "/privacy",
-        "destination": "/privacy",
-        "type": 301
-      },
-      {
-        "source": "/account-deletion",
-        "destination": "/account-deletion",
-        "type": 301
-      }
-    ],
     "headers": [
       {
         "source": "**/*.@(html)",
