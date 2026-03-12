@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">Alerty HatchBase</string>
+    <string name="notification_channel_description">Powiadomienia o nadchodzacym wylegu</string>
+    <string name="notification_generic_title">Powiadomienie</string>
+    <string name="notification_incubation_reminder_title">Przypomnienie inkubacji</string>
+    <string name="notification_nursery_reminder_title">Przypomnienie odchowu</string>
+    <string name="notification_unknown_bird">Nieznany ptak</string>
+    <string name="notification_hatch_alert_title">Alert HatchBase</string>
+    <string name="notification_hatch_alert_text">Jaja od %1$s wykluja sie jutro</string>
+    <string name="notification_hatch_alert_big_text">Alert HatchBase: Jaja od %1$s wykluja sie jutro (Oczekiwane: %2$s)</string>
+    <string name="notification_week2_title">Kontrola odchowu - tydzien 2</string>
+    <string name="notification_week2_message">%1$s: sprawdz temperature, suchosc sciolki i wzrost pisklat.</string>
+    <string name="notification_growout_title">Gotowe do sekcji odchowu</string>
+    <string name="notification_growout_message">%1$s: partia moze byc gotowa do przeniesienia dzisiaj.</string>
+    <string name="notification_stop_turning_title">Inkubator: zatrzymaj obracanie</string>
+    <string name="notification_stop_turning_message">Dzisiaj ostatni dzien obracania. Przygotuj sie na jutrzejszy lockdown.</string>
+    <string name="notification_lockdown_title">Inkubator: czas lockdownu</string>
+    <string name="notification_lockdown_message">Lockdown zaczyna sie dzisiaj. Zwieksz wilgotnosc do %1$d%% i trzymaj pokrywe zamknieta.</string>
+    <string name="notification_hatch_window_title">Inkubator: okno wylegu otwarte</string>
+    <string name="notification_hatch_window_message">Piskleta moga wkrotce zaczac nakluwac. Badz cierpliwy i nie otwieraj inkubatora.</string>
+    <string name="notification_cooling_start_title">Rozpocznij chlodzenie</string>
+    <string name="notification_cooling_start_message">Rozpocznij codzienny cykl chlodzenia dla jaj %1$s.</string>
+    <string name="notification_temp_alert_title">Alert temperatury</string>
+    <string name="notification_temp_low_message">Temperatura za niska (%.1f)</string>
+    <string name="notification_temp_high_message">Temperatura za wysoka (%.1f)</string>
+    <string name="notification_humidity_alert_title">Alert wilgotnosci</string>
+    <string name="notification_humidity_low_message">Wilgotnosc za niska (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Wilgotnosc za wysoka (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Przypomnienie Hatchy</string>
+    <string name="hatchy_lockdown_reminder">Lockdown zaczyna sie jutro. Warto przestac obracac jaja.</string>
+    <string name="hatchy_hatch_window_reminder">Okno wylegu zaczyna sie jutro. Przygotuj odchowalnik.</string>
+    <string name="hatchy_brooder_temp_reminder">Kontrola odchowu: Dla pisklat w wieku %1$d dni zalecana temperatura to %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Jak dzisiaj maja sie piskleta %1$s?</string>
+    <string name="hatchy_flock_ready_reminder">Rosna szybko. Te mlode ptaki moga byc gotowe do dolaczenia do doroslego stada.</string>
+</resources>

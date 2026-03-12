@@ -1,0 +1,59 @@
+# Gradle/Android Studio
+.gradle/
+.gradle-home/
+.gradle-local/
+.gradle-user-home/
+.adb-home/
+.android/
+.android-home/
+.android-sdk-home/
+.android-user-home/
+.android_home/
+.kotlin/
+**/build/
+.idea/
+*.iml
+local.properties
+.DS_Store
+
+# Keystores (if any)
+*.jks
+*.keystore
+
+# Node
+node_modules/
+
+# Local build logs and diagnostics
+build_full_log.txt
+build_alignment_*.txt
+*_alignment_*.txt
+*.log
+tools/logs/
+build-logic/bin/
+core/model/bin/
+live_logcat*.txt
+logcat*.txt
+monkey_*.txt
+perf_logcat*.txt
+strictmode_*.txt
+crash_scan*.txt
+build_error*.txt
+build_errors*.txt
+build_log*.txt
+build_output*.txt
+compile_errors*.txt
+compile_output*.txt
+connected_test_logcat.txt
+
+# Local snapshots / bundles / temp outputs
+*.apks
+*.aab
+*.zip
+bundletool.jar
+temp_*/
+_backup_app_folder/
+_monolith_snapshot/
+review_pack_attachments/
+
+# Credentials
+scripts/serviceAccountKey.json

@@ -1,0 +1,687 @@
+﻿diff --git a/core/data/src/main/java/com/example/hatchtracker/auth/UserAuthManager.kt b/core/data/src/main/java/com/example/hatchtracker/auth/UserAuthManager.kt
+index 7954883b..8483cbb9 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/auth/UserAuthManager.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/auth/UserAuthManager.kt
+@@ -40,13 +40,23 @@ object UserAuthManager {
+         auth.addAuthStateListener { firebaseAuth ->
+             val user = firebaseAuth.currentUser
+             _currentUser.value = user
+-            
+-            // Note: Role syncing removed from client-side for security and consistency.
+-            // These flags are now managed via server-side claims or Firestore security rules.
+-            // DEBUG BYPASS: Automatically grant admin/dev roles in debug builds.
+-            _isSystemAdmin.value = BuildConfig.DEBUG
+-            _isCommunityAdmin.value = BuildConfig.DEBUG
+-            _isDeveloper.value = BuildConfig.DEBUG
++
++            if (user == null) {
++                _isSystemAdmin.value = false
++                _isDeveloper.value = false
++                return@addAuthStateListener
++            }
++
++            user.getIdToken(true)
++                .addOnSuccessListener { tokenResult ->
++                    _isSystemAdmin.value =
++                        parseClaimBoolean(tokenResult.claims, "isAdmin") ||
++                            parseClaimBoolean(tokenResult.claims, "isSystemAdmin")
++                    _isDeveloper.value = parseClaimBoolean(tokenResult.claims, "isDeveloper")
++                }
++                .addOnFailureListener {
++                    // Keep last known role flags to avoid transient claim fetch failures demoting access.
++                }
+         }
+     }
+ 
+@@ -179,4 +189,14 @@ object UserAuthManager {
+         auth.addAuthStateListener(listener)
+         awaitClose { auth.removeAuthStateListener(listener) }
+     }
++
++    private fun parseClaimBoolean(claims: Map<String, Any>, key: String): Boolean {
++        val value = claims[key] ?: return false
++        return when (value) {
++            is Boolean -> value
++            is Number -> value.toInt() != 0
++            is String -> value.equals("true", ignoreCase = true) || value == "1"
++            else -> false
++        }
++    }
+ }
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/AuthClaimsRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/AuthClaimsRepository.kt
+new file mode 100644
+index 00000000..8c8a7e8f
+--- /dev/null
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/AuthClaimsRepository.kt
+@@ -0,0 +1,133 @@
++package com.example.hatchtracker.data.repository
++
++import com.example.hatchtracker.data.models.UserClaims
++import com.example.hatchtracker.core.logging.LogTags
++import com.example.hatchtracker.core.logging.Logger
++import com.google.firebase.auth.FirebaseAuth
++import kotlinx.coroutines.channels.awaitClose
++import kotlinx.coroutines.flow.Flow
++import kotlinx.coroutines.flow.MutableStateFlow
++import kotlinx.coroutines.flow.StateFlow
++import kotlinx.coroutines.flow.asStateFlow
++import kotlinx.coroutines.flow.callbackFlow
++import kotlinx.coroutines.launch
++import kotlinx.coroutines.tasks.await
++import javax.inject.Inject
++import javax.inject.Singleton
++
++/**
++ * Repository responsible for monitoring and refreshing Firebase Auth custom claims.
++ */
++@Singleton
++class AuthClaimsRepository @Inject constructor(
++    private val auth: FirebaseAuth
++) {
++    private val _isAdmin = MutableStateFlow(false)
++    val isAdmin: StateFlow<Boolean> = _isAdmin.asStateFlow()
++
++    private val _isDeveloper = MutableStateFlow(false)
++    val isDeveloper: StateFlow<Boolean> = _isDeveloper.asStateFlow()
++
++    init {
++        // Keep role claims hot without requiring any Flow collector.
++        // Force a refresh once on startup to pick up newly granted claims quickly.
++        syncClaimsFromUser(auth.currentUser, forceRefresh = true)
++
++        auth.addAuthStateListener { firebaseAuth ->
++            syncClaimsFromUser(firebaseAuth.currentUser, forceRefresh = true)
++        }
++    }
++
++    /**
++     * Observes the isAdmin and isDeveloper claims reactively.
++     * Uses cached tokens to minimize network overhead.
++     */
++    fun observeClaims(): Flow<UserClaims> = callbackFlow {
++        // Initial check from current user state if available
++        launch {
++            val initialClaims = fetchClaims(forceRefresh = false)
++            _isAdmin.value = initialClaims.isAdmin
++            _isDeveloper.value = initialClaims.isDeveloper
++            trySend(initialClaims)
++        }
++
++        val listener = FirebaseAuth.AuthStateListener { firebaseAuth ->
++            val user = firebaseAuth.currentUser
++            if (user == null) {
++                _isAdmin.value = false
++                _isDeveloper.value = false
++                trySend(UserClaims())
++            } else {
++                // When auth state changes, check claims (cached) without blocking this callback.
++                user.getIdToken(false)
++                    .addOnSuccessListener { tokenResult ->
++                        val isAdminClaim = parseClaimBoolean(tokenResult.claims, "isAdmin") ||
++                            parseClaimBoolean(tokenResult.claims, "isSystemAdmin")
++                        val isDevClaim = parseClaimBoolean(tokenResult.claims, "isDeveloper")
++                        _isAdmin.value = isAdminClaim
++                        _isDeveloper.value = isDevClaim
++                        trySend(UserClaims(isAdmin = isAdminClaim, isDeveloper = isDevClaim))
++                    }
++                    .addOnFailureListener { e ->
++                        Logger.w(LogTags.AUTH, "Failed to fetch cached claims in auth listener; keeping last known claims: ${e.message}")
++                        trySend(UserClaims(isAdmin = _isAdmin.value, isDeveloper = _isDeveloper.value))
++                    }
++            }
++        }
++        
++        auth.addAuthStateListener(listener)
++        awaitClose { auth.removeAuthStateListener(listener) }
++    }
++
++    /**
++     * Forces a refresh of the ID token to pick up new custom claims.
++     */
++    suspend fun refreshClaims(): Boolean {
++        return try {
++            val claims = fetchClaims(forceRefresh = true)
++            _isAdmin.value = claims.isAdmin
++            _isDeveloper.value = claims.isDeveloper
++            true
++        } catch (e: Exception) {
++            Logger.e(LogTags.AUTH, "Failed to refresh custom claims", e)
++            false
++        }
++    }
++
++    private suspend fun fetchClaims(forceRefresh: Boolean): UserClaims {
++        val user = auth.currentUser ?: return UserClaims()
++        val tokenResult = user.getIdToken(forceRefresh).await()
++        val isAdmin = parseClaimBoolean(tokenResult.claims, "isAdmin") ||
++            parseClaimBoolean(tokenResult.claims, "isSystemAdmin")
++        val isDeveloper = parseClaimBoolean(tokenResult.claims, "isDeveloper")
++        return UserClaims(isAdmin = isAdmin, isDeveloper = isDeveloper)
++    }
++
++    private fun syncClaimsFromUser(user: com.google.firebase.auth.FirebaseUser?, forceRefresh: Boolean) {
++        if (user == null) {
++            _isAdmin.value = false
++            _isDeveloper.value = false
++            return
++        }
++
++        user.getIdToken(forceRefresh)
++            .addOnSuccessListener { tokenResult ->
++                _isAdmin.value = parseClaimBoolean(tokenResult.claims, "isAdmin") ||
++                    parseClaimBoolean(tokenResult.claims, "isSystemAdmin")
++                _isDeveloper.value = parseClaimBoolean(tokenResult.claims, "isDeveloper")
++            }
++            .addOnFailureListener { e ->
++                Logger.w(LogTags.AUTH, "Failed to sync claims from token; keeping last known claims: ${e.message}")
++            }
++    }
++
++    private fun parseClaimBoolean(claims: Map<String, Any>, key: String): Boolean {
++        val value = claims[key] ?: return false
++        return when (value) {
++            is Boolean -> value
++            is Number -> value.toInt() != 0
++            is String -> value.equals("true", ignoreCase = true) || value == "1"
++            else -> false
++        }
++    }
++}
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/BirdRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/BirdRepository.kt
+index 76fbb585..f07c51cd 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/BirdRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/BirdRepository.kt
+@@ -14,7 +14,8 @@ class BirdRepository @Inject constructor(
+     private val db: AppDatabase,
+     private val birdDao: BirdDao,
+     private val syncCoordinator: com.example.hatchtracker.data.sync.CoreDataSyncCoordinator,
+-    private val auth: FirebaseAuth
++    private val auth: FirebaseAuth,
++    private val entitlements: com.example.hatchtracker.billing.Entitlements
+ ) {
+     val allBirds: Flow<List<Bird>> = birdDao.getAllBirdsFlow()
+     val activeBirds: Flow<List<Bird>> = birdDao.getActiveBirdsFlow()
+@@ -37,6 +38,15 @@ class BirdRepository @Inject constructor(
+ 
+     suspend fun insertBird(bird: Bird): Long {
+         return db.withTransaction {
++            // Enforcement: Check Max Birds in Flock
++            val flockId = requireNotNull(bird.flockId) {
++                "Bird must have a flockId before insert."
++            }
++            val currentCount = birdDao.getBirdCountForFlockSync(flockId)
++            if (currentCount >= entitlements.maxBirdsPerFlock()) {
++                throw IllegalStateException("Max birds limit reached for this flock in current subscription tier.")
++            }
++
+             val toInsert = bird.copy(
+                 ownerUserId = auth.currentUser?.uid,
+                 syncState = SyncState.PENDING,
+@@ -59,6 +69,17 @@ class BirdRepository @Inject constructor(
+ 
+     suspend fun insertBirds(birds: List<Bird>): List<Long> {
+         return db.withTransaction {
++            if (birds.isEmpty()) return@withTransaction emptyList()
++            
++            // Enforcement: Check Max Birds in Flock (checking target of first bird)
++            val flockId = requireNotNull(birds.first().flockId) {
++                "Bird batch insert requires flockId on the first bird."
++            }
++            val currentCount = birdDao.getBirdCountForFlockSync(flockId)
++            if (currentCount + birds.size > entitlements.maxBirdsPerFlock()) {
++                throw IllegalStateException("Batch operation would exceed max birds limit for this flock.")
++            }
++
+             val userId = auth.currentUser?.uid
+             val now = System.currentTimeMillis()
+             val toInsert = birds.map { 
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedStandardRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedStandardRepository.kt
+index 3665b7cc..f18622e5 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedStandardRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedStandardRepository.kt
+@@ -3572,6 +3572,10 @@ class BreedStandardRepository @Inject constructor() {
+         return _breeds.value.filter { it.species.equals(species, ignoreCase = true) }
+     }
+ 
++    fun getAllBreeds(): List<BreedStandard> {
++        return _breeds.value
++    }
++
+     fun getBreedById(id: String): BreedStandard? {
+         return _breeds.value.find { it.id == id }
+     }
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingActionPlanRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingProgramRepository.kt
+similarity index 79%
+rename from core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingActionPlanRepository.kt
+rename to core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingProgramRepository.kt
+index 3494fa53..459e20f5 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingActionPlanRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingProgramRepository.kt
+@@ -1,11 +1,11 @@
+ package com.example.hatchtracker.data.repository
+ 
+ import com.example.hatchtracker.data.AppDatabase
+-import com.example.hatchtracker.data.BreedingActionPlanDao
+-import com.example.hatchtracker.data.models.BreedingActionPlan
++import com.example.hatchtracker.data.BreedingProgramDao
++import com.example.hatchtracker.data.models.BreedingProgram
+ import com.example.hatchtracker.data.models.SyncQueueEntity
+ import com.example.hatchtracker.data.models.SyncState
+-import com.example.hatchtracker.data.models.toDomain
++import com.example.hatchtracker.data.models.toDomainModel
+ import com.example.hatchtracker.data.models.toEntity
+ import androidx.room.withTransaction
+ import kotlinx.coroutines.flow.Flow
+@@ -15,26 +15,25 @@ import javax.inject.Inject
+ import javax.inject.Singleton
+ 
+ @Singleton
+-class BreedingActionPlanRepository @Inject constructor(
++class BreedingProgramRepository @Inject constructor(
+     private val db: AppDatabase,
+-    private val planDao: BreedingActionPlanDao,
++    private val planDao: BreedingProgramDao,
+     private val syncCoordinator: com.example.hatchtracker.data.sync.CoreDataSyncCoordinator
+ ) {
+     /**
+      * Observes active implementation plans for a user.
+      */
+-    fun observePlans(userId: String): Flow<List<BreedingActionPlan>> {
++    fun observePlans(userId: String): Flow<List<BreedingProgram>> {
+         // userId restriction should be handled by the DAO or by filtering if syncId isn't global
+-        // For now, mapping all active entities for simplicity as ownerUserId is a field
+-        return planDao.getForScenario("").map { list -> // "" is dummy, needs real logic or different DAO method
+-             list.map { it.toDomain() }
++        return planDao.getForScenario("").map { list -> 
++             list.map { it.toDomainModel() }
+         }
+     }
+ 
+     /**
+      * Creates a new action plan.
+      */
+-    suspend fun createPlan(plan: BreedingActionPlan): Result<String> {
++    suspend fun createPlan(plan: BreedingProgram): Result<String> {
+         return try {
+             val syncId = if (plan.id.isEmpty()) UUID.randomUUID().toString() else plan.id
+             val toInsert = plan.copy(id = syncId).toEntity().copy(
+@@ -46,7 +45,7 @@ class BreedingActionPlanRepository @Inject constructor(
+                 planDao.insert(toInsert)
+                 db.syncQueueDao().enqueue(
+                     SyncQueueEntity(
+-                        entityType = "BreedingActionPlan",
++                        entityType = "BreedingProgram",
+                         entityId = syncId,
+                         operation = "UPSERT",
+                         nextAttemptAt = System.currentTimeMillis()
+@@ -63,7 +62,7 @@ class BreedingActionPlanRepository @Inject constructor(
+     /**
+      * Updates an existing plan.
+      */
+-    suspend fun updatePlan(plan: BreedingActionPlan): Result<Unit> {
++    suspend fun updatePlan(plan: BreedingProgram): Result<Unit> {
+         return try {
+             if (plan.id.isEmpty()) throw Exception("Plan ID is required for update")
+             
+@@ -76,7 +75,7 @@ class BreedingActionPlanRepository @Inject constructor(
+                 planDao.insert(toUpdate)
+                 db.syncQueueDao().enqueue(
+                     SyncQueueEntity(
+-                        entityType = "BreedingActionPlan",
++                        entityType = "BreedingProgram",
+                         entityId = plan.id,
+                         operation = "UPSERT",
+                         nextAttemptAt = System.currentTimeMillis()
+@@ -122,11 +121,11 @@ class BreedingActionPlanRepository @Inject constructor(
+         }
+     }
+     
+-    suspend fun getPlan(planId: String): Result<BreedingActionPlan> {
++    suspend fun getPlan(planId: String): Result<BreedingProgram> {
+         return try {
+             val entity = planDao.getBySyncId(planId)
+             if (entity != null) {
+-                Result.success(entity.toDomain())
++                Result.success(entity.toDomainModel())
+             } else {
+                 Result.failure(Exception("Plan not found"))
+             }
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingScenarioRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingScenarioRepository.kt
+index 4a004fad..bec74b54 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingScenarioRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/BreedingScenarioRepository.kt
+@@ -14,6 +14,7 @@ import java.util.UUID
+ import javax.inject.Inject
+ import javax.inject.Singleton
+ 
++@Deprecated("Use BreedingProgram system instead. BreedingScenarios are replaced by BreedingActionPlans label 'Active Programs'.")
+ @Singleton
+ class BreedingScenarioRepository @Inject constructor(
+     private val db: AppDatabase,
+@@ -24,59 +25,14 @@ class BreedingScenarioRepository @Inject constructor(
+      * Creates a new breeding scenario.
+      */
+     suspend fun createScenario(scenario: BreedingScenario): Result<String> {
+-        return try {
+-            val syncId = if (scenario.id.isEmpty()) UUID.randomUUID().toString() else scenario.id
+-            val toInsert = scenario.copy(id = syncId).toEntity().copy(
+-                syncState = SyncState.PENDING,
+-                lastModified = System.currentTimeMillis()
+-            )
+-            
+-            db.withTransaction {
+-                scenarioDao.insert(toInsert)
+-                db.syncQueueDao().enqueue(
+-                    SyncQueueEntity(
+-                        entityType = "BreedingScenario",
+-                        entityId = syncId,
+-                        operation = "UPSERT",
+-                        nextAttemptAt = System.currentTimeMillis()
+-                    )
+-                )
+-            }
+-            syncCoordinator.triggerPush()
+-            Result.success(syncId)
+-        } catch (e: Exception) {
+-            Result.failure(e)
+-        }
++        return Result.failure(Exception("Creation of legacy scenarios is no longer supported. Please use the Breeding Program system."))
+     }
+ 
+     /**
+      * Updates an existing scenario.
+      */
+     suspend fun updateScenario(scenario: BreedingScenario): Result<Unit> {
+-        return try {
+-            if (scenario.id.isEmpty()) throw Exception("Scenario ID is required for update")
+-            
+-            val toUpdate = scenario.toEntity().copy(
+-                syncState = SyncState.PENDING,
+-                lastModified = System.currentTimeMillis()
+-            )
+-
+-            db.withTransaction {
+-                scenarioDao.insert(toUpdate)
+-                db.syncQueueDao().enqueue(
+-                    SyncQueueEntity(
+-                        entityType = "BreedingScenario",
+-                        entityId = scenario.id,
+-                        operation = "UPSERT",
+-                        nextAttemptAt = System.currentTimeMillis()
+-                    )
+-                )
+-            }
+-            syncCoordinator.triggerPush()
+-            Result.success(Unit)
+-        } catch (e: Exception) {
+-            Result.failure(e)
+-        }
++        return Result.failure(Exception("Modification of legacy scenarios is no longer supported."))
+     }
+ 
+     /**
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/ConfigRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/ConfigRepository.kt
+index 3ffee1f0..727925b2 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/ConfigRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/ConfigRepository.kt
+@@ -18,16 +18,35 @@ class ConfigRepository @Inject constructor(
+      * Emits safe defaults if the document or specific fields are missing.
+      */
+     fun observeAppAccessConfig(): Flow<AppAccessConfig> = callbackFlow {
++        val docPath = "config/app_access"
+         val subscription = firestore.collection("config")
+             .document("app_access")
+             .addSnapshotListener { snapshot, error ->
++                val now = System.currentTimeMillis()
+                 if (error != null) {
+-                    // Fail silently with default config to prevent app crashes on network issues
+-                    trySend(AppAccessConfig())
++                    val status = if (error.code == com.google.firebase.firestore.FirebaseFirestoreException.Code.PERMISSION_DENIED) {
++                        com.example.hatchtracker.data.models.FetchStatus.PERMISSION_DENIED
++                    } else {
++                        com.example.hatchtracker.data.models.FetchStatus.ERROR
++                    }
++                    
++                    com.example.hatchtracker.core.logging.Logger.e(
++                        com.example.hatchtracker.core.logging.LogTags.DB,
++                        "op=observeAppAccessConfig status=$status path=$docPath error=${error.message}"
++                    )
++                    trySend(AppAccessConfig(
++                        fetchStatus = status,
++                        fetchTimestamp = now,
++                        errorMessage = error.message
++                    ))
+                     return@addSnapshotListener
+                 }
+ 
+                 val config = if (snapshot != null && snapshot.exists()) {
++                    com.example.hatchtracker.core.logging.Logger.d(
++                        com.example.hatchtracker.core.logging.LogTags.DB, 
++                        "op=observeAppAccessConfig status=success path=$docPath"
++                    )
+                     val tierString = snapshot.getString("reviewerTier") ?: "FREE"
+                     val tier = try {
+                         SubscriptionTier.valueOf(tierString.uppercase())
+@@ -42,10 +61,20 @@ class ConfigRepository @Inject constructor(
+                         reviewerOverlayEnabled = snapshot.getBoolean("reviewerOverlayEnabled") ?: false,
+                         reviewerAllowlistUids = allowlist ?: emptyList(),
+                         reviewerTier = tier,
+-                        lastUpdated = snapshot.getTimestamp("lastUpdated")?.seconds
++                        expiresAt = snapshot.getLong("expiresAt"),
++                        lastUpdated = snapshot.getTimestamp("lastUpdated")?.seconds,
++                        fetchStatus = com.example.hatchtracker.data.models.FetchStatus.SUCCESS,
++                        fetchTimestamp = now
+                     )
+                 } else {
+-                    AppAccessConfig()
++                    com.example.hatchtracker.core.logging.Logger.w(
++                        com.example.hatchtracker.core.logging.LogTags.DB,
++                        "op=observeAppAccessConfig status=missing path=$docPath"
++                    )
++                    AppAccessConfig(
++                        fetchStatus = com.example.hatchtracker.data.models.FetchStatus.NOT_FOUND,
++                        fetchTimestamp = now
++                    )
+                 }
+                 
+                 trySend(config)
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/FlockRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/FlockRepository.kt
+index 64c88b20..b3b9f663 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/FlockRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/FlockRepository.kt
+@@ -15,7 +15,8 @@ class FlockRepository @Inject constructor(
+     private val db: AppDatabase,
+     private val flockDao: FlockDao,
+     private val syncCoordinator: com.example.hatchtracker.data.sync.CoreDataSyncCoordinator,
+-    private val auth: FirebaseAuth
++    private val auth: FirebaseAuth,
++    private val entitlements: com.example.hatchtracker.billing.Entitlements
+ ) {
+     val allActiveFlocks: Flow<List<Flock>> = flockDao.getAllActiveFlocks()
+     val activeFlocks: Flow<List<Flock>> = allActiveFlocks
+@@ -30,6 +31,12 @@ class FlockRepository @Inject constructor(
+ 
+     suspend fun insertFlock(flock: Flock): Long {
+         return db.withTransaction {
++            // Enforcement: Check Max Flocks
++            val currentCount = flockDao.getActiveFlockCountSync()
++            if (currentCount >= entitlements.maxFlocks()) {
++                throw IllegalStateException("Max flocks limit reached for current subscription tier.")
++            }
++
+             val toInsert = flock.copy(
+                 ownerUserId = auth.currentUser?.uid,
+                 syncState = SyncState.PENDING,
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/IncubationRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/IncubationRepository.kt
+index 3ddab958..7a874123 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/IncubationRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/IncubationRepository.kt
+@@ -22,12 +22,24 @@ class IncubationRepository @Inject constructor(
+     private val birdDao: BirdDao,
+     private val incubationMeasurementDao: IncubationMeasurementDao,
+     private val syncCoordinator: com.example.hatchtracker.data.sync.CoreDataSyncCoordinator,
+-    private val auth: FirebaseAuth
++    private val auth: FirebaseAuth,
++    private val entitlements: com.example.hatchtracker.billing.Entitlements
+ ) {
+     val allIncubations: Flow<List<Incubation>> = incubationDao.getAllIncubationsFlow()
+ 
+     suspend fun insertIncubation(incubation: Incubation): Long {
+         return db.withTransaction {
++            // Enforcement: Check Max Active Incubations
++            val activeCount = incubationDao.getActiveIncubationCount()
++            if (activeCount >= entitlements.maxActiveIncubations()) {
++                throw IllegalStateException("Max active incubations limit reached for current subscription tier.")
++            }
++
++            // Enforcement: Check Max Eggs
++            if (incubation.eggsCount > entitlements.maxEggsPerIncubation()) {
++                throw IllegalStateException("Egg count exceeds the maximum allowed for current subscription tier.")
++            }
++
+             val toInsert = incubation.copy(
+                 ownerUserId = auth.currentUser?.uid,
+                 syncState = SyncState.PENDING,
+@@ -196,7 +208,7 @@ class IncubationRepository @Inject constructor(
+         planId: String,
+         generationIndex: Int,
+         breederPoolBirdIds: List<String>,
+-        orchestrator: com.example.hatchtracker.domain.breeding.ActionPlanLifecycleOrchestrator
++        orchestrator: com.example.hatchtracker.domain.breeding.ProgramLifecycleOrchestrator
+     ): Long {
+         val id = insertIncubation(incubation)
+         orchestrator.onIncubationCreated(id, planId, generationIndex, breederPoolBirdIds)
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/NurseryRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/NurseryRepository.kt
+index cb76ae2e..523c14d3 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/NurseryRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/NurseryRepository.kt
+@@ -16,7 +16,8 @@ import javax.inject.Singleton
+ class NurseryRepository @Inject constructor(
+     database: AppDatabase,
+     private val graduationListener: com.example.hatchtracker.domain.breeding.FlockletGraduationListener,
+-    private val flockRepository: FlockRepository
++    private val flockRepository: FlockRepository,
++    private val entitlements: com.example.hatchtracker.billing.Entitlements
+ ) {
+     
+     private val flockletDao = database.flockletDao()
+@@ -32,6 +33,12 @@ class NurseryRepository @Inject constructor(
+     suspend fun getFlockletById(id: Long) = flockletDao.getFlockletById(id)
+ 
+     suspend fun addFlocklet(flocklet: Flocklet): Flocklet {
++        // Enforcement: Check Max Flocklets
++        val activeCount = flockletDao.getActiveFlockletsSync().size
++        if (activeCount >= entitlements.maxFlocklets()) {
++            throw IllegalStateException("Max active flocklets limit reached for current subscription tier.")
++        }
++
+         // Initialize targets if fresh
+         val rule = NurseryConfig.getRuleForSpecies(flocklet.species)
+         val initialized = flocklet.copy(
+@@ -53,6 +60,14 @@ class NurseryRepository @Inject constructor(
+         val existing = incubation.id.let { flockletDao.getFlockletByHatchId(it) }
+         if (existing != null) return existing
+ 
++        // Enforcement: Check Max Chicks
++        if (hatchedCount > entitlements.maxChicksPerFlocklet()) {
++            // Note: We don't throw here to avoid breaking the completed hatch flow, 
++            // but we could cap it or log a warning. For now, following the "Hard Guard" 
++            // strategy for creation we will throw to ensure compliance.
++            throw IllegalStateException("Chick count exceeds the maximum allowed for current subscription tier.")
++        }
++
+         val flocklet = Flocklet(
+             hatchId = incubation.id,
+             species = incubation.species,
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/SupportRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/SupportRepository.kt
+index 1df7b485..a4d3a851 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/SupportRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/SupportRepository.kt
+@@ -74,7 +74,8 @@ class SupportRepository @Inject constructor(
+             )
+             "localization" -> listOf(
+                 SupportFeature("translation_error", "localization", "Translation Error"),
+-                SupportFeature("missing_translation", "localization", "Missing Translation")
++                SupportFeature("missing_translation", "localization", "Missing Translation"),
++                SupportFeature("language_switch_issue", "localization", "Language Switch Issue")
+             )
+             else -> listOf(
+                 SupportFeature("general", moduleId, "General Issue"),
+diff --git a/core/data/src/main/java/com/example/hatchtracker/data/repository/UserRepository.kt b/core/data/src/main/java/com/example/hatchtracker/data/repository/UserRepository.kt
+index 7dab353c..e5f6d996 100644
+--- a/core/data/src/main/java/com/example/hatchtracker/data/repository/UserRepository.kt
++++ b/core/data/src/main/java/com/example/hatchtracker/data/repository/UserRepository.kt
+@@ -2,7 +2,6 @@
+ 
+ import com.example.hatchtracker.data.models.SubscriptionTier
+ import com.example.hatchtracker.domain.model.UserProfile
+-import com.example.hatchtracker.core.common.DeveloperWhitelist
+ import com.example.hatchtracker.core.logging.LogTags
+ import com.example.hatchtracker.core.logging.Logger
+ import com.google.firebase.auth.FirebaseAuth
+@@ -245,36 +244,39 @@ class UserRepository @Inject constructor(
+             }
+ 
+             if (snapshot != null && snapshot.exists()) {
+-                val profile = snapshot.toObject(UserProfile::class.java)
+-                
+-                // Manual fallback for developer status because of Kotlin boolean/is-prefix naming issues with Firestore mapper
+-                // PLUS integration with DeveloperWhitelist (UID or Email)
+-                val currentUser = FirebaseAuth.getInstance().currentUser
+-                val isWhitelistedDev = DeveloperWhitelist.isAuthorized(userId) || 
+-                                   (currentUser?.uid == userId && DeveloperWhitelist.isAuthorizedByEmail(currentUser.email))
+-                val isWhitelistedAdmin = (currentUser?.uid == userId && DeveloperWhitelist.isAuthorizedAdminByEmail(currentUser.email))
+-                
+-                val isDevManual = snapshot.getBoolean("isDeveloper") == true || 
+-                                 snapshot.getBoolean("developer") == true ||
+-                                 isWhitelistedDev
+-                
+-                val isAdminManual = snapshot.getBoolean("isSystemAdmin") == true ||
+-                                   snapshot.getBoolean("systemAdmin") == true ||
+-                                   isWhitelistedAdmin
+-                
+-                val finalProfile = profile?.copy(
+-                    isDeveloper = isDevManual,
+-                    isSystemAdmin = isAdminManual
+-                ) ?: UserProfile(
++                val roles = (snapshot.get("roles") as? List<*>)?.mapNotNull { it?.toString() } ?: emptyList()
++                val role = snapshot.getString("role")?.lowercase().orEmpty()
++                val isDeveloperProfile = snapshot.getBoolean("isDeveloper") == true ||
++                    roles.any { it.equals("developer", ignoreCase = true) } ||
++                    role == "developer"
++                val isSystemAdminProfile = snapshot.getBoolean("isSystemAdmin") == true ||
++                    snapshot.getBoolean("isAdmin") == true ||
++                    roles.any { it.equals("admin", ignoreCase = true) || it.equals("system_admin", ignoreCase = true) } ||
++                    role == "admin"
++                val isCommunityAdminProfile = snapshot.getBoolean("isCommunityAdmin") == true ||
++                    roles.any { it.equals("community_admin", ignoreCase = true) }
++                val profile = UserProfile(
+                     userId = userId,
+-                    isDeveloper = isDevManual,
+-                    isSystemAdmin = isAdminManual
++                    email = snapshot.getString("email") ?: "",
++                    displayName = snapshot.getString("displayName") ?: "",
++                    profilePictureUrl = snapshot.getString("profilePictureUrl"),
++                    subscriptionTier = SubscriptionTier.valueOf(snapshot.getString("subscriptionTier") ?: "FREE"),
++                    subscriptionActive = snapshot.getBoolean("subscriptionActive") == true,
++                    isDeveloper = isDeveloperProfile,
++                    isSystemAdmin = isSystemAdminProfile,
++                    isCommunityAdmin = isCommunityAdminProfile,
++                    roles = roles,
++                    countryCode = snapshot.getString("countryCode") ?: "US",
++                    weightUnit = snapshot.getString("weightUnit") ?: "kg",
++                    dateFormat = snapshot.getString("dateFormat") ?: "yyyy-MM-dd",
++                    timeFormat = snapshot.getString("timeFormat") ?: "24h",
++                    currencyCode = snapshot.getString("currencyCode") ?: "USD"
+                 )
+                 
+-                Logger.d(LogTags.AUTH, "Snapshot received: isDeveloper=$isDevManual, isWhitelistedDev=$isWhitelistedDev, isSystemAdmin=$isAdminManual, isWhitelistedAdmin=$isWhitelistedAdmin")
++                Logger.d(LogTags.AUTH, "Snapshot received for userId=$userId")
+                 
+-                trySend(finalProfile)
+-                _userProfile.value = finalProfile
++                trySend(profile)
++                _userProfile.value = profile
+             } else {
+                 Logger.d(LogTags.AUTH, "Snapshot is null or doesn't exist")
+                 trySend(null)

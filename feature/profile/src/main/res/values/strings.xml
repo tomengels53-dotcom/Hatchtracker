@@ -1,0 +1,74 @@
+<resources>
+    <string name="user_profile_title">User Profile</string>
+    <string name="retry">Retry</string>
+    <string name="error_prefix">Error: %1$s</string>
+    
+    <!-- Profile Info -->
+    <string name="set_username">Set Username</string>
+    <string name="edit_name_content_desc">Edit name</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="change_picture">Change Picture</string>
+
+    <!-- Security -->
+    <string name="security_title">Security</string>
+    <string name="change_password">Change Password</string>
+    <string name="update_credentials_desc">Update your account credentials</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="update">Update</string>
+
+    <!-- Subscription -->
+    <string name="subscription_title">Subscription</string>
+    <string name="plan_free">Free Plan</string>
+    <string name="plan_expert">Expert Plan</string>
+    <string name="plan_pro">Pro Plan</string>
+    <string name="plan_active">Plan Active</string>
+    <string name="plan_inactive">No Active Subscription</string>
+
+    <!-- Dialogs -->
+    <string name="update_name_title">Update Name</string>
+    <string name="display_name_label">Display Name</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Localization -->
+    <string name="localization_title">Localization</string>
+    <string name="current_country_format">Current Country: %1$s</string>
+    <string name="weight_unit_label">Weight Unit:</string>
+    <string name="date_format_label">Date Format:</string>
+    <string name="time_format_label">Time Format:</string>
+    <string name="complete_setup">Complete Setup</string>
+    <string name="setup_title">Set Up Your Profile</string>
+    <string name="setup_subtitle">Select your country to automatically set units and formats.</string>
+    <string name="unit_defaults_title">Unit &amp; Format Defaults</string>
+    <string name="profile_msg_updated">Profile updated</string>
+    <string name="profile_msg_password_changed">Password changed successfully</string>
+    <string name="profile_msg_country_updated">Country updated to %1$s</string>
+    <string name="country_label">Country</string>
+    <string name="default_currency_format">Default Currency: %1$s</string>
+    <string name="request_country_change">Request Country Change</string>
+    <string name="app_language">App Language</string>
+    <string name="change_language">Change Language</string>
+    <string name="localization_warning">Some changes may require app restart.</string>
+    <string name="my_devices_title">My Devices</string>
+    <string name="add">Add</string>
+    <string name="no_devices_added">No devices added yet</string>
+    <string name="device_capacity_format">%1$d/%2$d</string>
+    <string name="maintenance_log_item_title">%1$s - %2$s</string>
+    <string name="maintenance_log_cost_format">Cost: %1$s</string>
+    <string name="device_service_summary_format">Service: %1$s | Total Cost: %2$s</string>
+    <string name="profile_delete_keyword">DELETE</string>
+    <string name="maintenance_log_dialog_title">Service Log: %1$s</string>
+    <string name="maintenance_log_add_button">Add Service Log</string>
+    <string name="maintenance_log_empty_msg">No service logs yet</string>
+    <string name="maintenance_log_add_title">Add Service Log</string>
+    <string name="maintenance_log_type_label">Type</string>
+    <string name="maintenance_log_description_label">Description</string>
+    <string name="maintenance_log_cost_label">Cost (optional)</string>
+    <string name="maintenance_log_add_action">Add</string>
+    <string name="maintenance_log_close_desc">Close</string>
+    <string name="maintenance_log_delete_desc">Delete</string>
+    <string name="lifecycle_status_disposed">DISPOSED</string>
+    <string name="value_not_available">N/A</string>
+</resources>

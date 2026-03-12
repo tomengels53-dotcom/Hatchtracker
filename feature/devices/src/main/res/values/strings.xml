@@ -1,0 +1,23 @@
+<resources>
+    <string name="add_device_title">Add New Equipment</string>
+    <string name="select_model">Select Model</string>
+    <string name="device_name_label">Equipment Name</string>
+    <string name="add_device_button">Add Equipment</string>
+    <string name="model_capacity_format">Capacity: %1$d Eggs</string>
+    <string name="specs_format">Specs: %1$d Eggs, Auto-Turn: %2$s</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="desc_back">Back</string>
+    <string name="desc_selected">Selected</string>
+    <string name="track_as_capital_asset">Track as Capital Asset</string>
+    <string name="device_category_label">Category</string>
+    <string name="purchase_date_label">Purchase Date</string>
+    <string name="purchase_price_label">Purchase Price</string>
+    <string name="residual_salvage_value_label">Residual/Salvage Value</string>
+    <string name="depreciation_method_label">Depreciation Method</string>
+    <string name="time_based_label">Time Based</string>
+    <string name="cycle_based_label">Cycle Based</string>
+    <string name="useful_life_months_label">Useful Life (Months)</string>
+    <string name="expected_cycles_label">Expected Cycles</string>
+    <string name="select_date_desc">Select Date</string>
+</resources>

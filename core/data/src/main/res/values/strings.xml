@@ -1,0 +1,8 @@
+<resources>
+    <string name="breeding_safeguard_lethal_title">Lethal Gene Risk</string>
+    <string name="breeding_safeguard_lethal_copy">This pairing carries a high risk of lethal gene expression (25%%+ embryo mortality). To protect animal welfare, this confirmation is blocked.</string>
+    <string name="breeding_safeguard_inbreeding_title">Severe Inbreeding Alert</string>
+    <string name="breeding_safeguard_inbreeding_copy">This pairing has an estimated Inbreeding Coefficient &gt; 25%. This significantly increases the risk of inbreeding depression and congenital deformities. Proceed with extreme caution.</string>
+    <string name="breeding_educational_disclaimer">HatchBase predictions are for educational purposes and based on Mendelian probabilities. Environmental factors and genetic mutations may lead to different outcomes.</string>
+    <string name="breeding_no_guarantee_copy">No commercial results or show-quality outcomes are guaranteed.</string>
+</resources>

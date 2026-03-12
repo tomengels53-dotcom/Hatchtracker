@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">HatchBase-varsler</string>
+    <string name="notification_channel_description">Varsler om kommende klekking</string>
+    <string name="notification_generic_title">Varsel</string>
+    <string name="notification_incubation_reminder_title">Inkubasjonsvarsel</string>
+    <string name="notification_nursery_reminder_title">Oppdrettsvarsel</string>
+    <string name="notification_unknown_bird">Ukjent fugl</string>
+    <string name="notification_hatch_alert_title">HatchBase-varsel</string>
+    <string name="notification_hatch_alert_text">Egg fra %1$s klekkes i morgen</string>
+    <string name="notification_hatch_alert_big_text">HatchBase-varsel: Egg fra %1$s klekkes i morgen (Forventet: %2$s)</string>
+    <string name="notification_week2_title">Uke 2 oppdrettssjekk</string>
+    <string name="notification_week2_message">%1$s: sjekk varme, stro og vekst hos kyllingene.</string>
+    <string name="notification_growout_title">Klar for oppvekstomrade</string>
+    <string name="notification_growout_message">%1$s: gruppen kan vaere klar for flytting i dag.</string>
+    <string name="notification_stop_turning_title">Rugemaskin: stopp vending</string>
+    <string name="notification_stop_turning_message">I dag er siste dag med vending. Forbered lockdown i morgen.</string>
+    <string name="notification_lockdown_title">Rugemaskin: lockdown</string>
+    <string name="notification_lockdown_message">Lockdown starter i dag. Ok luftfuktighet til %1$d%% og hold lokket lukket.</string>
+    <string name="notification_hatch_window_title">Rugemaskin: klekkevindu apent</string>
+    <string name="notification_hatch_window_message">Kyllinger kan begynne a hakke snart. Vaer talmodig og unnga a apne rugemaskinen.</string>
+    <string name="notification_cooling_start_title">Start kjoling</string>
+    <string name="notification_cooling_start_message">Start daglig kjolerutine for %1$s-egg.</string>
+    <string name="notification_temp_alert_title">Temperaturvarsel</string>
+    <string name="notification_temp_low_message">Temperaturen er for lav (%.1f)</string>
+    <string name="notification_temp_high_message">Temperaturen er for hoy (%.1f)</string>
+    <string name="notification_humidity_alert_title">Fuktighetsvarsel</string>
+    <string name="notification_humidity_low_message">Fuktigheten er for lav (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Fuktigheten er for hoy (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Hatchy-paminnelse</string>
+    <string name="hatchy_lockdown_reminder">Lockdown starter i morgen. Du bor kanskje slutte a vende eggene.</string>
+    <string name="hatchy_hatch_window_reminder">Forventet klekkevindu starter i morgen. Gjor oppdrettsboksen klar.</string>
+    <string name="hatchy_brooder_temp_reminder">Brooder-sjekk: For kyllinger pa %1$d dager er anbefalt temperatur %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Hvordan gar det med %1$s-kyllingene i dag?</string>
+    <string name="hatchy_flock_ready_reminder">De vokser raskt. Disse kyllingene kan vaere klare for voksen flokk.</string>
+</resources>

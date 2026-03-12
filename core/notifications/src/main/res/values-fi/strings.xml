@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">HatchBase-halytykset</string>
+    <string name="notification_channel_description">Ilmoitukset tulevista kuoriutumisista</string>
+    <string name="notification_generic_title">Ilmoitus</string>
+    <string name="notification_incubation_reminder_title">Haudonta-muistutus</string>
+    <string name="notification_nursery_reminder_title">Kasvatusmuistutus</string>
+    <string name="notification_unknown_bird">Tuntematon lintu</string>
+    <string name="notification_hatch_alert_title">HatchBase-halytys</string>
+    <string name="notification_hatch_alert_text">Linnun %1$s munat kuoriutuvat huomenna</string>
+    <string name="notification_hatch_alert_big_text">HatchBase-halytys: Linnun %1$s munat kuoriutuvat huomenna (Arvio: %2$s)</string>
+    <string name="notification_week2_title">Viikon 2 kasvatus-tarkistus</string>
+    <string name="notification_week2_message">%1$s: tarkista lampo, kuivike ja poikasten kasvu.</string>
+    <string name="notification_growout_title">Valmis kasvatusosastoon</string>
+    <string name="notification_growout_message">%1$s: era voi olla valmis siirtoon tanaan.</string>
+    <string name="notification_stop_turning_title">Hautomo: lopeta kaanto</string>
+    <string name="notification_stop_turning_message">Tanaan on viimeinen kaantopaiva. Valmistaudu huomisen lockdowniin.</string>
+    <string name="notification_lockdown_title">Hautomo: lockdown-aika</string>
+    <string name="notification_lockdown_message">Lockdown alkaa tanaan. Nosta kosteus %1$d%% tasolle ja pida kansi kiinni.</string>
+    <string name="notification_hatch_window_title">Hautomo: kuoriutumisikkuna auki</string>
+    <string name="notification_hatch_window_message">Poikaset voivat alkaa nakyttaa pian. Ole karsivallinen ja valta inkubaattorin avaamista.</string>
+    <string name="notification_cooling_start_title">Aloita jaahdytys</string>
+    <string name="notification_cooling_start_message">Aloita paivittainen jaahdytys rutiini %1$s munille.</string>
+    <string name="notification_temp_alert_title">Lampotilahalytys</string>
+    <string name="notification_temp_low_message">Lampotila liian matala (%.1f)</string>
+    <string name="notification_temp_high_message">Lampotila liian korkea (%.1f)</string>
+    <string name="notification_humidity_alert_title">Kosteushalytys</string>
+    <string name="notification_humidity_low_message">Kosteus liian matala (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Kosteus liian korkea (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Hatchy-muistutus</string>
+    <string name="hatchy_lockdown_reminder">Lockdown alkaa huomenna. Munien kaanto kannattaa ehk lopettaa.</string>
+    <string name="hatchy_hatch_window_reminder">Kuoriutumisikkuna alkaa huomenna. Valmistele kasvatuslaatikko.</string>
+    <string name="hatchy_brooder_temp_reminder">Kasvatuslaatikon tarkistus: %1$d paivan ikaisten poikasten suosituslampo on %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Miten %1$s-poikasilla menee tanaan?</string>
+    <string name="hatchy_flock_ready_reminder">Kasvu on nopeaa. Namat poikaset voivat olla valmiita liittymaan aikuiseen parveen.</string>
+</resources>

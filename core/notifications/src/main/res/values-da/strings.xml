@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">HatchBase advarsler</string>
+    <string name="notification_channel_description">Notifikationer om kommende klaekning</string>
+    <string name="notification_generic_title">Notifikation</string>
+    <string name="notification_incubation_reminder_title">Inkubationspaamindelse</string>
+    <string name="notification_nursery_reminder_title">Opdraetspaamindelse</string>
+    <string name="notification_unknown_bird">Ukendt fugl</string>
+    <string name="notification_hatch_alert_title">HatchBase advarsel</string>
+    <string name="notification_hatch_alert_text">Aeg fra %1$s klaekker i morgen</string>
+    <string name="notification_hatch_alert_big_text">HatchBase advarsel: Aeg fra %1$s klaekker i morgen (Forventet: %2$s)</string>
+    <string name="notification_week2_title">Uge 2 opdraetskontrol</string>
+    <string name="notification_week2_message">%1$s: tjek varme, stroeelse og kyllingernes vaekst.</string>
+    <string name="notification_growout_title">Klar til vaekstafdeling</string>
+    <string name="notification_growout_message">%1$s: holdet kan vaere klar til flytning i dag.</string>
+    <string name="notification_stop_turning_title">Klaekker: stop vending</string>
+    <string name="notification_stop_turning_message">I dag er sidste dag med vending. Gor klar til lockdown i morgen.</string>
+    <string name="notification_lockdown_title">Klaekker: lockdown</string>
+    <string name="notification_lockdown_message">Lockdown starter i dag. Haev fugtigheden til %1$d%% og hold laaget lukket.</string>
+    <string name="notification_hatch_window_title">Klaekker: klaekningsvindue aabent</string>
+    <string name="notification_hatch_window_message">Kyllinger kan begynde at pikke snart. Vaer taalmodig og undgaa at aabne inkubatoren.</string>
+    <string name="notification_cooling_start_title">Start koeling</string>
+    <string name="notification_cooling_start_message">Start daglig koelingsrutine for %1$s-aeg.</string>
+    <string name="notification_temp_alert_title">Temperaturalarm</string>
+    <string name="notification_temp_low_message">Temperaturen er for lav (%.1f)</string>
+    <string name="notification_temp_high_message">Temperaturen er for hoj (%.1f)</string>
+    <string name="notification_humidity_alert_title">Fugtighedsalarm</string>
+    <string name="notification_humidity_low_message">Fugtigheden er for lav (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Fugtigheden er for hoj (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Hatchy-paamindelse</string>
+    <string name="hatchy_lockdown_reminder">Lockdown starter i morgen. Du bor maaske stoppe med at vende aeg.</string>
+    <string name="hatchy_hatch_window_reminder">Klaekningsvinduet starter i morgen. Gor opdraetskassen klar.</string>
+    <string name="hatchy_brooder_temp_reminder">Brooder-tjek: For kyllinger paa %1$d dage er anbefalet temperatur %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Hvordan har %1$s-kyllingerne det i dag?</string>
+    <string name="hatchy_flock_ready_reminder">De vokser hurtigt. Disse unge fugle kan vaere klar til voksen flok.</string>
+</resources>

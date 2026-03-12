@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "schemaVersion": "1.0",
+        "datasetVersion": "1.0",
+        "speciesCoverage": [
+            "DUCK"
+        ]
+    },
+    "knowledge": [
+        {
+            "topic": "DURATION",
+            "species": "DUCK",
+            "content": "Most duck breeds (like Pekins) take 28 days to hatch. Muscovy ducks are an exception and take 35 days.",
+            "keywords": [
+                "how long",
+                "days",
+                "period"
+            ]
+        },
+        {
+            "topic": "HUMIDITY",
+            "species": "DUCK",
+            "content": "Ducks need higher humidity. Keep it at 55% during incubation and 75% for lockdown (days 25-28). Spraying/misting with lukewarm water can help.",
+            "keywords": [
+                "humidity",
+                "moisture",
+                "wet"
+            ]
+        },
+        {
+            "topic": "TEMPERATURE",
+            "species": "DUCK",
+            "content": "Ducks generally do well at 99.5°F (37.5°C), same as chickens, but they are more sensitive to overheating.",
+            "keywords": [
+                "temperature",
+                "temp",
+                "heat",
+                "degrees"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HatchBase</string>
+    
+    <!-- Languages -->
+    <string name="language_system">System Default</string>
+    <string name="language_english">English</string>
+    <string name="language_dutch">Dutch</string>
+    <string name="language_french">French</string>
+    <string name="language_spanish">Spanish</string>
+    <string name="language_portuguese">Portuguese</string>
+    <string name="language_german">German</string>
+    <string name="language_italian">Italian</string>
+    <string name="language_polish">Polish</string>
+    <string name="language_swedish">Swedish</string>
+    <string name="language_czech">Czech</string>
+    <string name="language_danish">Danish</string>
+    <string name="language_finnish">Finnish</string>
+    <string name="language_norwegian">Norwegian</string>
+
+    <!-- Errors -->
+    <string name="error_unknown_occurred">An unknown error occurred.</string>
+    <string name="error_permission_denied_settings">Permission denied. Please check your settings.</string>
+    <string name="error_unauthenticated_retry">You are not authenticated. Please try logging in again.</string>
+    <string name="error_generic_something_went_wrong">Something went wrong. Please try again.</string>
+
+    <!-- Breeding & Hatchy (Migrated) -->
+    <string name="breeding_scenario_sim_title">Breeding Scenario Simulation (PRO)</string>
+    <string name="breeding_goals_set">Goals Set</string>
+    <string name="breeding_error_prefix">Error: %1$s</string>
+    <string name="hatchy_advice_lockdown">Lockdown phase! Stop turning eggs and increase humidity.</string>
+    <string name="hatchy_advice_approaching">Getting close! Prepare your brooder area.</string>
+    <string name="hatchy_advice_mid_incubation">Mid-incubation: Candle your eggs to check for development.</string>
+    <string name="hatchy_advice_early">Early days: Ensure temperature and humidity are stable. Turn eggs regularly.</string>
+    <string name="breeding_scenario_diversity_name">Genetic Diversity Focus</string>
+    <string name="breeding_scenario_diversity_desc">Focus on hybrid vigor\u2014Nature\'s way of keepin\' things strong.</string>
+    <string name="breeding_scenario_diversity_strategy">By crossin\' these different lines, we\'re likely to see a boost in health and unique trait combinations. It\'s an ethical way to keep the flock robust.</string>
+    <string name="breeding_scenario_purity_name">Breed Purity Focus</string>
+    <string name="breeding_scenario_purity_desc">Workin\' towards that perfect standard, one generation at a time.</string>
+    <string name="breeding_scenario_purity_strategy">We\'re linkin\' up similar birds to lock in these traits. High confidence in the breed markers here, though external factors always play a part.</string>
+    <string name="breeding_scenario_balanced_name">Balanced Production</string>
+    <string name="breeding_scenario_balanced_desc">A practical plan for temperament and size.</string>
+    <string name="breeding_scenario_balanced_strategy">Balance is the key to a happy yard. We\'re lookin\' for good manners and steady growth across the generations.</string>
+    <string name="breeding_scenario_refine_prompt">Select birds and goals to refine this scenario.</string>
+    <string name="breeding_scenario_match_summary">Scenario match for %1$s: Based on this goal, breeds like Leghorn or Rhode Island Red would be suitable candidates.</string>
+    <string name="hatchy_advice_incubation_early">Patience is a virtue, especially on Day %1$d. Keep that humidity steady. A spike now can cause trouble later.</string>
+    <string name="hatchy_advice_incubation_late">Lockdown time is near. Stop turnin\' \'em soon and trust the process. The chicks are startin\' their final stretch.</string>
+    <string name="hatchy_advice_incubation_mid">Day %1$d... half-way there. Keep the air flowin\' and your eyes on the temp.</string>
+    <string name="hatchy_advice_flock_layers">A flock of %1$d layers is a busy yard. High-calcium feed and plenty of light\'ll keep those baskets full, but don\'t forget to let \'em rest come winter.</string>
+    <string name="hatchy_advice_flock_breeding">Breeding birds need their space. Proper ratios-one sire to about 8 or 10 dams-keep the peace and ensure your fertility stays high.</string>
+    <string name="hatchy_advice_flock_meat">Consistent growth is the goal here. Keep \'em movin\' to fresh grass if you can; it makes for a better bird and a healthier yard.</string>
+    <string name="hatchy_advice_flock_mixed">A mixed flock of %1$d is a joy to watch. Just make sure everyone has enough room to scratch without pecking their neighbors.</string>
+    <string name="hatchy_advice_nursery_temp">Don\'t forget to check the %1$s brooder today! To keep \'em adjustin\' right, aim for about %2$dC. Nature\'s waitin\' for \'em, but they need us to help \'em get used to the fresh air slow and steady.</string>
+    <string name="hatchy_advice_nursery_status">Day %1$d in the brooder. Temp\'s at %2$dC now; try keepin\' it around %3$dC so the chicks stay comfortable.</string>
+    <string name="hatchy_advice_evaluation_success">A %1$d%% hatch rate!! You\'ve done the birds proud. It looks like our plan is likely trackin\' towards the standard.</string>
+    <string name="hatchy_advice_evaluation_failure">Nature threw us a bit of a challege this time with a %1$d%% success rate. Let\'s look at the data-perhaps it was the incubation, or maybe the genetics need fresh blood.</string>
+    <string name="breeding_goal_size">Size</string>
+    <string name="breeding_goal_egg_color">Egg Color</string>
+    <string name="breeding_goal_temperament">Temperament</string>
+    <string name="breeding_goal_genetic_diversity">Genetic Diversity</string>
+    <string name="breeding_goal_breed_stabilization">Breed Stabilization</string>
+    <string name="breeding_goal_sex_linked_sorting">Sex-Linked Sorting</string>
+    <string name="breeding_goal_exotic_features">Exotic Features</string>
+    <string name="breeding_scenario_match_format">Scenario match for %1$s.</string>
+    <string name="breeding_basic_match_good">Good match for %1$s</string>
+    <string name="breeding_basic_match_acceptable">Acceptable match for %1$s</string>
+    <string name="breeding_basic_match_low">Low confidence match</string>
+    <string name="breeding_basic_match_not_recommended">Not recommended</string>
+    <string name="breeding_error_incompatible_species">Incompatible species: %1$s x %2$s</string>
+
+    <!-- Common Actions -->
+    <string name="action_graduate_move">Graduate / Move</string>
+    <string name="action_edit_status">Edit Status</string>
+    <string name="action_edit_details">Edit details</string>
+    <string name="action_edit_date_device">Edit Date &amp; Equipment</string>
+    <string name="action_sell_birds">Sell Birds</string>
+    <string name="action_sell_eggs">Sell Eggs</string>
+    <string name="action_add_cost">Add Cost</string>
+    <string name="action_add_revenue">Add Revenue</string>
+    <string name="action_record_loss">Record Loss</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_view_details">View Details</string>
+    <string name="action_view_incubation">View Incubation</string>
+    <string name="action_hatch_now">Hatch Now</string>
+    <string name="action_add_milestone">Add Milestone</string>
+    <string name="action_view_flock">View Flock</string>
+    <string name="action_manage_birds">Manage Birds</string>
+
+    <!-- Priority Sections -->
+    <string name="priority_critical">Critical</string>
+    <string name="priority_next_7_days">Next 7 Days</string>
+    <string name="priority_stable">Stable</string>
+    <string name="priority_archived">Archived</string>
+
+    <!-- Incubation Status -->
+    <string name="incubation_status_completed">Completed</string>
+    <string name="incubation_status_incubating">Incubating</string>
+
+    <!-- Flock Status -->
+    <string name="flock_label_unnamed">Unnamed Flock</string>
+    <string name="flock_status_active">Active</string>
+    <string name="flock_status_inactive">Inactive</string>
+</resources>

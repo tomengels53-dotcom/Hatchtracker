@@ -1,0 +1,80 @@
+<resources>
+    <!-- NurseryScreen -->
+    <string name="nursery_title">Nursery / Flocklets</string>
+    <string name="nursery_subtitle">Track growth &amp; acclimatization</string>
+    <string name="add_manual_flocklet_desc">Add Manual Flocklet</string>
+    <string name="filter_ready_only">Ready Only</string>
+    <string name="sort_label_prefix">Sort: %1$s</string>
+    <string name="active_brooders_header">Active Brooders</string>
+    <string name="nursery_active_batches_format">%1$d active batches (%2$d visible)</string>
+    <string name="empty_nursery_message">No chicks in nursery.\nTap + to add manual flocklet.</string>
+    <string name="no_matches_found">No matches found.</string>
+    <string name="delete_dialog_title">Delete Flocklet Batch?</string>
+    <string name="delete_dialog_message">Are you sure you want to delete this batch? This action cannot be undone.</string>
+    <string name="delete_action">Delete</string>
+    <string name="cancel_action">Cancel</string>
+    <string name="select_target_flock_title">Select Target Flock</string>
+    <string name="create_new_flock_button">Create New Flock</string>
+    <string name="no_flocks_found">No existing flocks found.</string>
+    <string name="or_select_existing">OR Select Existing:</string>
+    <string name="sort_option_age">Age</string>
+    <string name="sort_option_species">Species</string>
+    <string name="sort_option_readiness">Readiness</string>
+    <string name="record_loss_death_title">Record Loss / Death</string>
+    <string name="recording_loss_for_species_chicks">Recording loss for %1$s chicks.</string>
+    <string name="remaining_count_format">Remaining: %1$d</string>
+    <string name="quantity_lost_label">Quantity Lost</string>
+    <string name="reason_example_label">Reason (e.g. Cold, Disease)</string>
+    <string name="warning_loss_removes_batch">Warning: This will result in 0 chicks and remove the batch.</string>
+    <string name="confirm_loss_action">Confirm Loss</string>
+    <string name="record_sale_title">Record Sale</string>
+    <string name="selling_species_chicks">Selling %1$s chicks</string>
+    <string name="quantity_max_format">Quantity (Max %1$d)</string>
+    <string name="total_price_label">Total Price</string>
+    <string name="buyer_name_optional">Buyer Name (Optional)</string>
+    <string name="graduate_to_adult_flock_title">Graduate to Adult Flock</string>
+    <string name="graduate_to_adult_flock_message">These birds have reached maturity. This will transition them from the Nursery to an Adult Flock lifecycle stage.</string>
+    <string name="design_new_flock_custom">Design New Flock (Custom)</string>
+    <string name="quick_graduate_auto_create">Quick Graduate (Auto-Create Flock)</string>
+    <string name="manual_deletion_reason">Manual deletion</string>
+
+    <!-- AddFlockletDialog -->
+    <string name="add_manual_flocklet_title">Add Manual Flocklet</string>
+    <string name="add_manual_flocklet_help">Use this for chicks bought or hatched outside the app.</string>
+    <string name="label_species">Species</string>
+    <string name="remove_breed_desc">Remove</string>
+    <string name="label_add_breeds_format">Add Breeds (max %1$d)</string>
+    <string name="placeholder_select_breeds">Select breeds...</string>
+    <string name="limit_reached_format">Limit reached (%1$d)</string>
+    <string name="no_breeds_found">No standard breeds found</string>
+    <string name="breed_details_desc">Details</string>
+    <string name="label_chick_count">Chick Count</string>
+    <string name="label_age">Age (Days)</string>
+    <string name="age_hint">0 for just hatched</string>
+    <string name="add_flocklet_button">Add Manual Flocklet</string>
+    <string name="current_stage_nursery">Current Stage: Nursery</string>
+    <string name="chicks_days_to_graduation">%1$d chicks • %2$d/%3$d days to graduation</string>
+    <string name="ready_label">Ready</string>
+    <string name="health_issue_desc">Health Issue</string>
+    <string name="recommended_brooder_temp">Recommended Brooder Temp</string>
+    <string name="health_label">Health</string>
+    <string name="hatchy_tip_title">Hatchy\'s Tip</string>
+    <string name="time_to_graduation">Time to Graduation</string>
+    <string name="ready_to_graduate">Ready to Graduate</string>
+    <string name="days_left_format">%1$d days left</string>
+    <string name="financials_label">Financials</string>
+    <string name="profit_label_format">Profit: %1$s</string>
+    <string name="sell_action_caps">SELL</string>
+    <string name="loss_action_caps">LOSS</string>
+    <string name="update_status_notes">Update Status / Notes</string>
+    <string name="move_to_flock">Move to Flock</string>
+    <string name="minus_currency">-$</string>
+    <string name="plus_currency">+$</string>
+    <string name="tap_for_details">Tap for details ›</string>
+
+    <!-- EditFlockletDialog -->
+    <string name="update_flocklet_title">Update Flocklet Status</string>
+    <string name="label_health_status">Health Status</string>
+    <string name="label_notes">Notes</string>
+    <string name="save_button">Save</string>
+</resources>

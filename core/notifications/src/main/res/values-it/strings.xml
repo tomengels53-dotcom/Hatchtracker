@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">Avvisi HatchBase</string>
+    <string name="notification_channel_description">Notifiche sulle prossime schiuse</string>
+    <string name="notification_generic_title">Notifica</string>
+    <string name="notification_incubation_reminder_title">Promemoria incubazione</string>
+    <string name="notification_nursery_reminder_title">Promemoria allevamento</string>
+    <string name="notification_unknown_bird">Uccello sconosciuto</string>
+    <string name="notification_hatch_alert_title">Avviso HatchBase</string>
+    <string name="notification_hatch_alert_text">Le uova di %1$s si schiuderanno domani</string>
+    <string name="notification_hatch_alert_big_text">Avviso HatchBase: Le uova di %1$s si schiuderanno domani (Previsto: %2$s)</string>
+    <string name="notification_week2_title">Controllo allevamento - settimana 2</string>
+    <string name="notification_week2_message">%1$s: controlla temperatura, lettiera asciutta e crescita dei pulcini.</string>
+    <string name="notification_growout_title">Pronto per area crescita</string>
+    <string name="notification_growout_message">%1$s: il gruppo potrebbe essere pronto al trasferimento oggi.</string>
+    <string name="notification_stop_turning_title">Incubatrice: interrompi la rotazione</string>
+    <string name="notification_stop_turning_message">Oggi e ultimo giorno di rotazione. Preparati al lockdown di domani.</string>
+    <string name="notification_lockdown_title">Incubatrice: fase lockdown</string>
+    <string name="notification_lockdown_message">Il lockdown inizia oggi. Porta umidita a %1$d%% e tieni il coperchio chiuso.</string>
+    <string name="notification_hatch_window_title">Incubatrice: finestra di schiusa aperta</string>
+    <string name="notification_hatch_window_message">I pulcini potrebbero iniziare a beccare presto. Sii paziente e non aprire incubatrice.</string>
+    <string name="notification_cooling_start_title">Avvia raffreddamento</string>
+    <string name="notification_cooling_start_message">Inizia la routine giornaliera di raffreddamento per uova di %1$s.</string>
+    <string name="notification_temp_alert_title">Avviso temperatura</string>
+    <string name="notification_temp_low_message">Temperatura troppo bassa (%.1f)</string>
+    <string name="notification_temp_high_message">Temperatura troppo alta (%.1f)</string>
+    <string name="notification_humidity_alert_title">Avviso umidita</string>
+    <string name="notification_humidity_low_message">Umidita troppo bassa (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Umidita troppo alta (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Promemoria Hatchy</string>
+    <string name="hatchy_lockdown_reminder">Il lockdown inizia domani. Potresti voler smettere di girare le uova.</string>
+    <string name="hatchy_hatch_window_reminder">La finestra di schiusa inizia domani. Prepara la tua brooder.</string>
+    <string name="hatchy_brooder_temp_reminder">Controllo brooder: Per pulcini di %1$d giorni, la temperatura consigliata e %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Come stanno oggi i pulcini %1$s?</string>
+    <string name="hatchy_flock_ready_reminder">Crescono in fretta. Questi giovani possono essere pronti a unirsi al gruppo adulto.</string>
+</resources>

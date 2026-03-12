@@ -1,0 +1,105 @@
+<resources>
+    <!-- HelpSupportScreen -->
+    <string name="support_title">Help &amp; Support</string>
+    <string name="support_admin_panel">Admin Panel</string>
+    <string name="offline_warning">No Internet. Ticket will be queued.</string>
+    <string name="tab_new_request">New Request</string>
+    <string name="tab_my_tickets">My Tickets</string>
+    <string name="default_ticket_subject">Support Ticket</string>
+    <string name="no_tickets_found">No tickets found.</string>
+    <string name="change_request_format">Change Request: %1$s -> %2$s</string>
+    <string name="admin_note_format">Admin Note: %1$s</string>
+    <string name="status_pending">Pending</string>
+    <string name="created_at_format">Created: %1$s</string>
+    <string name="support_form_header">Submit a support ticket and our team will get back to you.</string>
+    <string name="support_translation_quick_title">Language or Translation Problem?</string>
+    <string name="support_translation_quick_desc">Report wrong translations, missing text, or language switch issues directly to admins.</string>
+    <string name="support_translation_quick_action">Create Language Ticket</string>
+    <string name="select_module">Select Module</string>
+    <string name="label_module">Category (Module)</string>
+    <string name="select_feature">Select Feature</string>
+    <string name="label_feature">Functionality / Feature</string>
+    <string name="country_change_title">Country Change Request</string>
+    <string name="country_change_warning">Changing your country may impact your currency formatting and subscription pricing. This request requires manual approval by an admin.</string>
+    <string name="label_country_code">Requested Country Code (ISO-2)</string>
+    <string name="placeholder_country_code">e.g. US, GB, CA</string>
+    <string name="country_change_acknowledgement">I understand that this change is permanent and will affect how financial data is displayed.</string>
+    <string name="label_message">What do you need help with?</string>
+    <string name="placeholder_message">Describe the issue or request...</string>
+    <string name="submit_ticket">Submit Ticket</string>
+    <string name="queue_ticket">Queue Ticket (Offline)</string>
+    <string name="export_diagnostics">Export Diagnostics to Clipboard</string>
+    <string name="diagnostics_copied">Diagnostics copied. Share only with support.</string>
+    <string name="ticket_submitted_title">Ticket Submitted!</string>
+    <string name="ticket_submitted_message">One of our poultry experts will review your request and reach out via email shortly.</string>
+    <string name="back_to_app">Back to App</string>
+
+    <!-- HatchyChatScreen -->
+    <string name="feedback_title_learning">Help Hatchy Learn</string>
+    <string name="feedback_title_improvement">How can Hatchy improve?</string>
+    <string name="feedback_desc_learning">Hatchy is still a young chick and couldn\'t find your answer. Please let us know your question and the answer you expected!</string>
+    <string name="feedback_desc_improvement">You gave Hatchy\'s advice a thumbs down. Tell us why so we can sharpen his wisdom.</string>
+    <string name="chat_title">Chat with Hatchy</string>
+    <string name="pro_mode_label">PRO Breeder Intelligence</string>
+    <string name="basic_mode_label">Basic Mentor Mode</string>
+    <string name="chat_placeholder">Ask Hatchy anything...</string>
+    <string name="hatchy_thinking">Hatchy is thinkin\'...</string>
+    <string name="sender_you">You</string>
+    <string name="sender_hatchy">Hatchy</string>
+    <string name="helpful_desc">Helpful</string>
+    <string name="not_helpful_desc">Not Helpful</string>
+
+    <!-- UserTicketDetailScreen -->
+    <string name="ticket_details_title">Ticket Details</string>
+    <string name="conversation_header">Conversation</string>
+    <string name="ticket_closed_message">This ticket is closed. You can no longer reply.</string>
+    <string name="ticket_chat_header">Ticket chat (public messages)</string>
+    <string name="ticket_chat_placeholder">Add an update for the support team...</string>
+    <string name="ticket_chat_send">Send</string>
+    <string name="no_messages_yet">No public messages yet.</string>
+    <string name="ticket_module_label">Module</string>
+    <string name="ticket_feature_label">Feature</string>
+    <string name="ticket_detail_back">Back to Tickets</string>
+    <string name="ticket_placeholder_title">Ticket</string>
+    <string name="ticket_status_label">Status</string>
+    <string name="ticket_close_view">Close View</string>
+    <string name="status_label">Status</string>
+    <string name="desc_back">Back</string>
+
+    <!-- Localized module labels -->
+    <string name="support_module_flock">Flock Management</string>
+    <string name="support_module_incubation">Incubation &amp; Hatchery</string>
+    <string name="support_module_breeding">Breeding &amp; Matchmaking</string>
+    <string name="support_module_nursery">Nursery &amp; Brooder</string>
+    <string name="support_module_financial">Account &amp; Financials</string>
+    <string name="support_module_profile">Profile</string>
+    <string name="support_module_localization">Language &amp; Localization</string>
+    <string name="support_module_other">General / Other</string>
+    <string name="support_issue_subject_format">%1$s Issue</string>
+
+    <!-- Localized feature labels -->
+    <string name="support_feature_adding_birds">Adding Birds</string>
+    <string name="support_feature_editing_flocks">Editing Flocks</string>
+    <string name="support_feature_bird_inventory">Bird Inventory</string>
+    <string name="support_feature_starting_hatch">Starting a Hatch</string>
+    <string name="support_feature_candling_results">Candling Results</string>
+    <string name="support_feature_hatch_statistics">Hatch Statistics</string>
+    <string name="support_feature_creating_pairs">Creating Pairs</string>
+    <string name="support_feature_ai_recommendations">AI Recommendations</string>
+    <string name="support_feature_genetic_compatibility">Genetic Compatibility</string>
+    <string name="support_feature_updating_chick_stats">Updating Chick Stats</string>
+    <string name="support_feature_temperature_tracking">Temperature Tracking</string>
+    <string name="support_feature_moving_to_adult_flock">Moving to Adult Flock</string>
+    <string name="support_feature_sales_tracking">Sales Tracking</string>
+    <string name="support_feature_expense_logging">Expense Logging</string>
+    <string name="support_feature_financial_overview">Financial Overview</string>
+    <string name="support_feature_country_change">Country Change</string>
+    <string name="support_feature_account_data_correction">Account Data Correction</string>
+    <string name="support_feature_identity_mismatch">Email / Identity Mismatch</string>
+    <string name="support_feature_translation_error">Translation Error</string>
+    <string name="support_feature_missing_translation">Missing Translation</string>
+    <string name="support_feature_language_switch_issue">Language Switch Issue</string>
+    <string name="support_feature_general_issue">General Issue</string>
+    <string name="support_feature_report_bug">Report a Bug</string>
+    <string name="support_feature_suggestion">Feature Suggestion</string>
+</resources>

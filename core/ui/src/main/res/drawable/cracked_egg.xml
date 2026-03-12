@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="250dp"
+    android:viewportWidth="200"
+    android:viewportHeight="250">
+    
+    <!-- Egg Shape -->
+    <path
+        android:fillColor="#FFF5E6"
+        android:strokeColor="#FFE0B2"
+        android:strokeWidth="2"
+        android:pathData="M100,5 
+                          C150,5 190,40 190,100 
+                          C190,180 160,245 100,245 
+                          C40,245 10,180 10,100 
+                          C10,40 50,5 100,5 Z" />
+
+    <!-- Horizontal Crack from center to left -->
+    <path
+        android:strokeColor="#6D4C41"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M100,125 L85,120 L75,130 L60,125" />
+</vector>

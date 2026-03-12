@@ -1,0 +1,2825 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 24,
+    "identityHash": "4a01a42e627bf4d58b9224d3915e5053",
+    "entities": [
+      {
+        "tableName": "birds",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `flockId` INTEGER, `species` TEXT NOT NULL, `breed` TEXT NOT NULL, `breedId` TEXT NOT NULL, `sex` TEXT NOT NULL, `hatchDate` TEXT NOT NULL, `generation` INTEGER NOT NULL, `motherId` INTEGER, `fatherId` INTEGER, `incubationId` INTEGER, `hatchBatchId` INTEGER, `color` TEXT, `notes` TEXT, `syncId` TEXT NOT NULL, `status` TEXT NOT NULL, `lifecycleStage` TEXT NOT NULL, `lastUpdated` INTEGER NOT NULL, `imagePath` TEXT, `ringNumber` TEXT, `ownerUserId` TEXT, `cloudId` TEXT NOT NULL, `flockCloudId` TEXT, `motherCloudId` TEXT, `fatherCloudId` TEXT, `serverUpdatedAt` INTEGER, `localUpdatedAt` INTEGER NOT NULL, `deleted` INTEGER NOT NULL, `pendingSync` INTEGER NOT NULL, `syncState` TEXT NOT NULL, `syncError` TEXT, `genetic_knownGenes` TEXT NOT NULL, `genetic_fixedTraits` TEXT NOT NULL, `genetic_inferredTraits` TEXT NOT NULL, `genetic_unknownTraits` TEXT NOT NULL, `genetic_confidenceLevel` TEXT NOT NULL, `genetic_traitValues` TEXT NOT NULL, `genetic_traitWeights` TEXT NOT NULL, `genetic_traitOverrides` TEXT NOT NULL, `genetic_notes` TEXT, `genetic_genotypeCalls` TEXT, `genetic_genotypeVersion` INTEGER NOT NULL, `custom_knownGenes` TEXT, `custom_fixedTraits` TEXT, `custom_inferredTraits` TEXT, `custom_unknownTraits` TEXT, `custom_confidenceLevel` TEXT, `custom_traitValues` TEXT, `custom_traitWeights` TEXT, `custom_traitOverrides` TEXT, `custom_notes` TEXT, `custom_genotypeCalls` TEXT, `custom_genotypeVersion` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flockId",
+            "columnName": "flockId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "species",
+            "columnName": "species",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breed",
+            "columnName": "breed",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breedId",
+            "columnName": "breedId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sex",
+            "columnName": "sex",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hatchDate",
+            "columnName": "hatchDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "generation",
+            "columnName": "generation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "motherId",
+            "columnName": "motherId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "fatherId",
+            "columnName": "fatherId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "incubationId",
+            "columnName": "incubationId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "hatchBatchId",
+            "columnName": "hatchBatchId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lifecycleStage",
+            "columnName": "lifecycleStage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imagePath",
+            "columnName": "imagePath",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "ringNumber",
+            "columnName": "ringNumber",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "ownerUserId",
+            "columnName": "ownerUserId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "cloudId",
+            "columnName": "cloudId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flockCloudId",
+            "columnName": "flockCloudId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "motherCloudId",
+            "columnName": "motherCloudId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "fatherCloudId",
+            "columnName": "fatherCloudId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "serverUpdatedAt",
+            "columnName": "serverUpdatedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "localUpdatedAt",
+            "columnName": "localUpdatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pendingSync",
+            "columnName": "pendingSync",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncError",
+            "columnName": "syncError",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "geneticProfile.knownGenes",
+            "columnName": "genetic_knownGenes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticProfile.fixedTraits",
+            "columnName": "genetic_fixedTraits",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticProfile.inferredTraits",
+            "columnName": "genetic_inferredTraits",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticProfile.unknownTraits",
+            "columnName": "genetic_unknownTraits",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticProfile.confidenceLevel",
+            "columnName": "genetic_confidenceLevel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticProfile.traitValues",
+            "columnName": "genetic_traitValues",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticProfile.traitWeights",
+            "columnName": "genetic_traitWeights",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticProfile.traitOverrides",
+            "columnName": "genetic_traitOverrides",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticProfile.notes",
+            "columnName": "genetic_notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "geneticProfile.genotypeCalls",
+            "columnName": "genetic_genotypeCalls",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "geneticProfile.genotypeVersion",
+            "columnName": "genetic_genotypeVersion",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "customGeneticProfile.knownGenes",
+            "columnName": "custom_knownGenes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.fixedTraits",
+            "columnName": "custom_fixedTraits",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.inferredTraits",
+            "columnName": "custom_inferredTraits",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.unknownTraits",
+            "columnName": "custom_unknownTraits",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.confidenceLevel",
+            "columnName": "custom_confidenceLevel",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.traitValues",
+            "columnName": "custom_traitValues",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.traitWeights",
+            "columnName": "custom_traitWeights",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.traitOverrides",
+            "columnName": "custom_traitOverrides",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.notes",
+            "columnName": "custom_notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.genotypeCalls",
+            "columnName": "custom_genotypeCalls",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "customGeneticProfile.genotypeVersion",
+            "columnName": "custom_genotypeVersion",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "flocks",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `species` TEXT NOT NULL, `breeds` TEXT NOT NULL DEFAULT '[]', `name` TEXT NOT NULL, `purpose` TEXT NOT NULL, `active` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `notes` TEXT, `eggCount` INTEGER NOT NULL DEFAULT 0, `syncId` TEXT NOT NULL, `lastUpdated` INTEGER NOT NULL, `imagePath` TEXT, `ownerUserId` TEXT, `cloudId` TEXT NOT NULL, `serverUpdatedAt` INTEGER, `localUpdatedAt` INTEGER NOT NULL, `deleted` INTEGER NOT NULL, `pendingSync` INTEGER NOT NULL, `syncState` TEXT NOT NULL, `syncError` TEXT, `default_knownGenes` TEXT, `default_fixedTraits` TEXT, `default_inferredTraits` TEXT, `default_unknownTraits` TEXT, `default_confidenceLevel` TEXT, `default_traitValues` TEXT, `default_traitWeights` TEXT, `default_traitOverrides` TEXT, `default_notes` TEXT, `default_genotypeCalls` TEXT, `default_genotypeVersion` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "species",
+            "columnName": "species",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breeds",
+            "columnName": "breeds",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "purpose",
+            "columnName": "purpose",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "eggCount",
+            "columnName": "eggCount",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imagePath",
+            "columnName": "imagePath",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "ownerUserId",
+            "columnName": "ownerUserId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "cloudId",
+            "columnName": "cloudId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serverUpdatedAt",
+            "columnName": "serverUpdatedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "localUpdatedAt",
+            "columnName": "localUpdatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pendingSync",
+            "columnName": "pendingSync",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncError",
+            "columnName": "syncError",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.knownGenes",
+            "columnName": "default_knownGenes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.fixedTraits",
+            "columnName": "default_fixedTraits",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.inferredTraits",
+            "columnName": "default_inferredTraits",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.unknownTraits",
+            "columnName": "default_unknownTraits",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.confidenceLevel",
+            "columnName": "default_confidenceLevel",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.traitValues",
+            "columnName": "default_traitValues",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.traitWeights",
+            "columnName": "default_traitWeights",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.traitOverrides",
+            "columnName": "default_traitOverrides",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.notes",
+            "columnName": "default_notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.genotypeCalls",
+            "columnName": "default_genotypeCalls",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultGeneticProfile.genotypeVersion",
+            "columnName": "default_genotypeVersion",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "flocklets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `hatchId` INTEGER, `species` TEXT NOT NULL, `breeds` TEXT NOT NULL DEFAULT '[]', `hatchDate` INTEGER NOT NULL, `chickCount` INTEGER NOT NULL, `currentTemp` REAL NOT NULL, `targetTemp` REAL NOT NULL, `ageInDays` INTEGER NOT NULL, `weightAvg` REAL NOT NULL, `healthStatus` TEXT NOT NULL, `notes` TEXT, `readyForFlock` INTEGER NOT NULL, `movedToFlockId` INTEGER, `syncId` TEXT NOT NULL, `lifecycleStage` TEXT NOT NULL, `lastUpdated` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hatchId",
+            "columnName": "hatchId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "species",
+            "columnName": "species",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breeds",
+            "columnName": "breeds",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "hatchDate",
+            "columnName": "hatchDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chickCount",
+            "columnName": "chickCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentTemp",
+            "columnName": "currentTemp",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetTemp",
+            "columnName": "targetTemp",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ageInDays",
+            "columnName": "ageInDays",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightAvg",
+            "columnName": "weightAvg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "healthStatus",
+            "columnName": "healthStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "readyForFlock",
+            "columnName": "readyForFlock",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movedToFlockId",
+            "columnName": "movedToFlockId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lifecycleStage",
+            "columnName": "lifecycleStage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "breeding_records",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `flockId` INTEGER NOT NULL, `species` TEXT NOT NULL, `sireId` INTEGER NOT NULL, `damIds` TEXT NOT NULL, `dateStarted` INTEGER NOT NULL, `status` TEXT NOT NULL, `goals` TEXT NOT NULL, `notes` TEXT, `syncId` TEXT NOT NULL, `lastUpdated` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flockId",
+            "columnName": "flockId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "species",
+            "columnName": "species",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sireId",
+            "columnName": "sireId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "damIds",
+            "columnName": "damIds",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateStarted",
+            "columnName": "dateStarted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "goals",
+            "columnName": "goals",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "breeding_scenarios",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`syncId` TEXT NOT NULL, `ownerUserId` TEXT NOT NULL, `name` TEXT NOT NULL, `species` TEXT NOT NULL, `status` TEXT NOT NULL, `breedIds` TEXT NOT NULL, `traitPriorities` TEXT NOT NULL, `generations` TEXT NOT NULL, `riskWarnings` TEXT NOT NULL, `parentScenarioId` TEXT, `originalAuthorAnonymized` TEXT, `isPublic` INTEGER NOT NULL, `downloadCount` INTEGER NOT NULL, `currentIncubationId` INTEGER, `confidenceScore` REAL NOT NULL, `geneticStabilityRatio` REAL NOT NULL, `volatilityIndicators` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `lastModified` INTEGER NOT NULL, `syncState` TEXT NOT NULL, `syncError` TEXT, `cloudUpdatedAt` INTEGER, `deleted` INTEGER NOT NULL, PRIMARY KEY(`syncId`))",
+        "fields": [
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerUserId",
+            "columnName": "ownerUserId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "species",
+            "columnName": "species",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breedIds",
+            "columnName": "breedIds",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "traitPriorities",
+            "columnName": "traitPriorities",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "generations",
+            "columnName": "generations",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "riskWarnings",
+            "columnName": "riskWarnings",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parentScenarioId",
+            "columnName": "parentScenarioId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "originalAuthorAnonymized",
+            "columnName": "originalAuthorAnonymized",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "isPublic",
+            "columnName": "isPublic",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "downloadCount",
+            "columnName": "downloadCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentIncubationId",
+            "columnName": "currentIncubationId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "confidenceScore",
+            "columnName": "confidenceScore",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geneticStabilityRatio",
+            "columnName": "geneticStabilityRatio",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "volatilityIndicators",
+            "columnName": "volatilityIndicators",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastModified",
+            "columnName": "lastModified",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncError",
+            "columnName": "syncError",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "cloudUpdatedAt",
+            "columnName": "cloudUpdatedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "syncId"
+          ]
+        }
+      },
+      {
+        "tableName": "breeding_action_plans",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`syncId` TEXT NOT NULL, `ownerUserId` TEXT NOT NULL, `scenarioId` TEXT NOT NULL, `name` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, `status` TEXT NOT NULL, `steps` TEXT NOT NULL, `lastModified` INTEGER NOT NULL, `syncState` TEXT NOT NULL, `syncError` TEXT, `cloudUpdatedAt` INTEGER, `deleted` INTEGER NOT NULL, `linkedAssets` TEXT NOT NULL, `planSpecies` TEXT NOT NULL, `finalGeneration` INTEGER NOT NULL, `activeGenerationIndex` INTEGER NOT NULL, `mergeMode` TEXT NOT NULL, `auditLog` TEXT NOT NULL, `entryMode` TEXT NOT NULL, `target` TEXT, `summaryRationale` TEXT, PRIMARY KEY(`syncId`))",
+        "fields": [
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerUserId",
+            "columnName": "ownerUserId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scenarioId",
+            "columnName": "scenarioId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "steps",
+            "columnName": "steps",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastModified",
+            "columnName": "lastModified",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncError",
+            "columnName": "syncError",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "cloudUpdatedAt",
+            "columnName": "cloudUpdatedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "linkedAssets",
+            "columnName": "linkedAssets",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "planSpecies",
+            "columnName": "planSpecies",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finalGeneration",
+            "columnName": "finalGeneration",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activeGenerationIndex",
+            "columnName": "activeGenerationIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mergeMode",
+            "columnName": "mergeMode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "auditLog",
+            "columnName": "auditLog",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entryMode",
+            "columnName": "entryMode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "target",
+            "columnName": "target",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "summaryRationale",
+            "columnName": "summaryRationale",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "syncId"
+          ]
+        }
+      },
+      {
+        "tableName": "egg_production",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `flockId` TEXT NOT NULL, `lineId` TEXT, `dateEpochDay` INTEGER NOT NULL, `totalEggs` INTEGER NOT NULL, `crackedEggs` INTEGER NOT NULL, `setForIncubation` INTEGER NOT NULL, `notes` TEXT, `cloudId` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, `deleted` INTEGER NOT NULL, `syncState` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flockId",
+            "columnName": "flockId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lineId",
+            "columnName": "lineId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "dateEpochDay",
+            "columnName": "dateEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalEggs",
+            "columnName": "totalEggs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "crackedEggs",
+            "columnName": "crackedEggs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "setForIncubation",
+            "columnName": "setForIncubation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "cloudId",
+            "columnName": "cloudId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_egg_production_flockId_dateEpochDay",
+            "unique": false,
+            "columnNames": [
+              "flockId",
+              "dateEpochDay"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_egg_production_flockId_dateEpochDay` ON `${TABLE_NAME}` (`flockId`, `dateEpochDay`)"
+          },
+          {
+            "name": "index_egg_production_flockId_lineId_dateEpochDay",
+            "unique": true,
+            "columnNames": [
+              "flockId",
+              "lineId",
+              "dateEpochDay"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_egg_production_flockId_lineId_dateEpochDay` ON `${TABLE_NAME}` (`flockId`, `lineId`, `dateEpochDay`)"
+          },
+          {
+            "name": "index_egg_production_cloudId",
+            "unique": true,
+            "columnNames": [
+              "cloudId"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_egg_production_cloudId` ON `${TABLE_NAME}` (`cloudId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "breed_lines",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `flockId` TEXT NOT NULL, `label` TEXT NOT NULL, `cloudId` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, `deleted` INTEGER NOT NULL, `syncState` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flockId",
+            "columnName": "flockId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "label",
+            "columnName": "label",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cloudId",
+            "columnName": "cloudId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_breed_lines_flockId",
+            "unique": false,
+            "columnNames": [
+              "flockId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_breed_lines_flockId` ON `${TABLE_NAME}` (`flockId`)"
+          },
+          {
+            "name": "index_breed_lines_cloudId",
+            "unique": true,
+            "columnNames": [
+              "cloudId"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_breed_lines_cloudId` ON `${TABLE_NAME}` (`cloudId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "incubations",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `flockId` INTEGER, `birdId` INTEGER, `fatherBirdId` INTEGER, `species` TEXT NOT NULL, `breeds` TEXT NOT NULL, `startDate` TEXT NOT NULL, `expectedHatch` TEXT NOT NULL, `eggsCount` INTEGER NOT NULL, `hatchedCount` INTEGER NOT NULL, `infertileCount` INTEGER NOT NULL, `failedCount` INTEGER NOT NULL, `actualHatchDate` TEXT, `hatchNotes` TEXT, `notes` TEXT, `hatchCompleted` INTEGER NOT NULL, `sourceScenarioId` TEXT NOT NULL, `incubationProfileId` TEXT NOT NULL, `incubatorDeviceId` TEXT NOT NULL, `hatcherDeviceId` TEXT NOT NULL, `syncId` TEXT NOT NULL, `lifecycleStage` TEXT NOT NULL, `lastUpdated` INTEGER NOT NULL, `ownerUserId` TEXT, `cloudId` TEXT NOT NULL, `flockCloudId` TEXT, `birdCloudId` TEXT, `fatherBirdCloudId` TEXT, `serverUpdatedAt` INTEGER, `localUpdatedAt` INTEGER NOT NULL, `deleted` INTEGER NOT NULL, `pendingSync` INTEGER NOT NULL, `syncState` TEXT NOT NULL, `syncError` TEXT, `actionPlanId` TEXT, `generationIndex` INTEGER, `breedLabelOverride` TEXT, `breederPoolBirdIds` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flockId",
+            "columnName": "flockId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "birdId",
+            "columnName": "birdId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "fatherBirdId",
+            "columnName": "fatherBirdId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "species",
+            "columnName": "species",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breeds",
+            "columnName": "breeds",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startDate",
+            "columnName": "startDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expectedHatch",
+            "columnName": "expectedHatch",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eggsCount",
+            "columnName": "eggsCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hatchedCount",
+            "columnName": "hatchedCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "infertileCount",
+            "columnName": "infertileCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "failedCount",
+            "columnName": "failedCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "actualHatchDate",
+            "columnName": "actualHatchDate",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "hatchNotes",
+            "columnName": "hatchNotes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "hatchCompleted",
+            "columnName": "hatchCompleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceScenarioId",
+            "columnName": "sourceScenarioId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "incubationProfileId",
+            "columnName": "incubationProfileId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "incubatorDeviceId",
+            "columnName": "incubatorDeviceId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hatcherDeviceId",
+            "columnName": "hatcherDeviceId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lifecycleStage",
+            "columnName": "lifecycleStage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerUserId",
+            "columnName": "ownerUserId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "cloudId",
+            "columnName": "cloudId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flockCloudId",
+            "columnName": "flockCloudId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "birdCloudId",
+            "columnName": "birdCloudId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "fatherBirdCloudId",
+            "columnName": "fatherBirdCloudId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "serverUpdatedAt",
+            "columnName": "serverUpdatedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "localUpdatedAt",
+            "columnName": "localUpdatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pendingSync",
+            "columnName": "pendingSync",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncError",
+            "columnName": "syncError",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "actionPlanId",
+            "columnName": "actionPlanId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "generationIndex",
+            "columnName": "generationIndex",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "breedLabelOverride",
+            "columnName": "breedLabelOverride",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "breederPoolBirdIds",
+            "columnName": "breederPoolBirdIds",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_incubations_flockId",
+            "unique": false,
+            "columnNames": [
+              "flockId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_incubations_flockId` ON `${TABLE_NAME}` (`flockId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "financial_entries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `syncId` TEXT NOT NULL, `ownerId` TEXT NOT NULL, `ownerType` TEXT NOT NULL, `type` TEXT NOT NULL, `category` TEXT NOT NULL, `amount` REAL NOT NULL, `amountNet` REAL, `amountVAT` REAL, `amountGross` REAL, `currency` TEXT, `vatEnabled` INTEGER, `vatRate` REAL, `date` INTEGER NOT NULL, `notes` TEXT NOT NULL, `quantity` INTEGER NOT NULL, `unit` TEXT, `isRecurring` INTEGER NOT NULL, `recurrenceIntervalDays` INTEGER, `lastRecurrenceDate` INTEGER, `depreciationMonths` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerId",
+            "columnName": "ownerId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerType",
+            "columnName": "ownerType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amountNet",
+            "columnName": "amountNet",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "amountVAT",
+            "columnName": "amountVAT",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "amountGross",
+            "columnName": "amountGross",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "currency",
+            "columnName": "currency",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "vatEnabled",
+            "columnName": "vatEnabled",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "vatRate",
+            "columnName": "vatRate",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantity",
+            "columnName": "quantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unit",
+            "columnName": "unit",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "isRecurring",
+            "columnName": "isRecurring",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "recurrenceIntervalDays",
+            "columnName": "recurrenceIntervalDays",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "lastRecurrenceDate",
+            "columnName": "lastRecurrenceDate",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "depreciationMonths",
+            "columnName": "depreciationMonths",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "financial_summaries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`summaryId` TEXT NOT NULL, `ownerType` TEXT NOT NULL, `ownerId` TEXT NOT NULL, `totalCosts` REAL NOT NULL, `totalRevenue` REAL NOT NULL, `profit` REAL NOT NULL, `costPerEgg` REAL NOT NULL, `costPerChick` REAL NOT NULL, `costPerAdult` REAL NOT NULL, `updatedAt` INTEGER NOT NULL, `lastSyncTime` INTEGER NOT NULL, PRIMARY KEY(`summaryId`))",
+        "fields": [
+          {
+            "fieldPath": "summaryId",
+            "columnName": "summaryId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerType",
+            "columnName": "ownerType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerId",
+            "columnName": "ownerId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalCosts",
+            "columnName": "totalCosts",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalRevenue",
+            "columnName": "totalRevenue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "profit",
+            "columnName": "profit",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "costPerEgg",
+            "columnName": "costPerEgg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "costPerChick",
+            "columnName": "costPerChick",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "costPerAdult",
+            "columnName": "costPerAdult",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastSyncTime",
+            "columnName": "lastSyncTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "summaryId"
+          ]
+        }
+      },
+      {
+        "tableName": "sales_batches",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ownerType` TEXT NOT NULL, `ownerId` TEXT NOT NULL, `itemType` TEXT NOT NULL, `quantity` INTEGER NOT NULL, `unitPrice` REAL NOT NULL, `totalPrice` REAL NOT NULL, `buyerType` TEXT NOT NULL, `buyerName` TEXT, `saleDate` INTEGER NOT NULL, `notes` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `syncId` TEXT NOT NULL, `lastUpdated` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerType",
+            "columnName": "ownerType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerId",
+            "columnName": "ownerId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "itemType",
+            "columnName": "itemType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quantity",
+            "columnName": "quantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unitPrice",
+            "columnName": "unitPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalPrice",
+            "columnName": "totalPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "buyerType",
+            "columnName": "buyerType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "buyerName",
+            "columnName": "buyerName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "saleDate",
+            "columnName": "saleDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "species_catalog",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `imageResId` INTEGER, `weightLbs` REAL NOT NULL, `weightKg` REAL NOT NULL, `heightInch` REAL NOT NULL, `heightCm` REAL NOT NULL, `syncId` TEXT NOT NULL, `lastUpdated` INTEGER NOT NULL, `dataSource` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageResId",
+            "columnName": "imageResId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "weightLbs",
+            "columnName": "weightLbs",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightKg",
+            "columnName": "weightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightInch",
+            "columnName": "heightInch",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightCm",
+            "columnName": "heightCm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataSource",
+            "columnName": "dataSource",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "breed_catalog",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `speciesId` TEXT NOT NULL, `name` TEXT NOT NULL, `imageResId` INTEGER, `climateSuitability` TEXT NOT NULL, `eggColor` TEXT NOT NULL, `size` TEXT NOT NULL, `weightClass` TEXT NOT NULL, `eggProduction` TEXT NOT NULL, `weightLbs` REAL NOT NULL, `weightKg` REAL NOT NULL, `heightInch` REAL NOT NULL, `heightCm` REAL NOT NULL, `syncId` TEXT NOT NULL, `lastUpdated` INTEGER NOT NULL, `dataSource` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`speciesId`) REFERENCES `species_catalog`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "speciesId",
+            "columnName": "speciesId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageResId",
+            "columnName": "imageResId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "climateSuitability",
+            "columnName": "climateSuitability",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eggColor",
+            "columnName": "eggColor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightClass",
+            "columnName": "weightClass",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eggProduction",
+            "columnName": "eggProduction",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightLbs",
+            "columnName": "weightLbs",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightKg",
+            "columnName": "weightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightInch",
+            "columnName": "heightInch",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightCm",
+            "columnName": "heightCm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataSource",
+            "columnName": "dataSource",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_breed_catalog_speciesId",
+            "unique": false,
+            "columnNames": [
+              "speciesId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_breed_catalog_speciesId` ON `${TABLE_NAME}` (`speciesId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "species_catalog",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "speciesId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "trait_promotions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `birdId` INTEGER NOT NULL, `traitName` TEXT NOT NULL, `oldStatus` TEXT NOT NULL, `newStatus` TEXT NOT NULL, `promotedBy` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `reason` TEXT, FOREIGN KEY(`birdId`) REFERENCES `birds`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "birdId",
+            "columnName": "birdId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "traitName",
+            "columnName": "traitName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oldStatus",
+            "columnName": "oldStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "newStatus",
+            "columnName": "newStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "promotedBy",
+            "columnName": "promotedBy",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reason",
+            "columnName": "reason",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_trait_promotions_birdId",
+            "unique": false,
+            "columnNames": [
+              "birdId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_trait_promotions_birdId` ON `${TABLE_NAME}` (`birdId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "birds",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "birdId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "notification_history",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `incubationId` INTEGER NOT NULL, `ruleId` TEXT NOT NULL, `eventId` TEXT, `timestamp` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "incubationId",
+            "columnName": "incubationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ruleId",
+            "columnName": "ruleId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eventId",
+            "columnName": "eventId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_notification_history_eventId",
+            "unique": false,
+            "columnNames": [
+              "eventId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notification_history_eventId` ON `${TABLE_NAME}` (`eventId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "inbox_notifications",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `incubationId` INTEGER NOT NULL, `eventId` TEXT, `title` TEXT NOT NULL, `message` TEXT NOT NULL, `severity` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `isRead` INTEGER NOT NULL, `snoozedUntil` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "incubationId",
+            "columnName": "incubationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eventId",
+            "columnName": "eventId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "message",
+            "columnName": "message",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "severity",
+            "columnName": "severity",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isRead",
+            "columnName": "isRead",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snoozedUntil",
+            "columnName": "snoozedUntil",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_inbox_notifications_eventId",
+            "unique": false,
+            "columnNames": [
+              "eventId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_inbox_notifications_eventId` ON `${TABLE_NAME}` (`eventId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "sync_queue",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `entityType` TEXT NOT NULL, `entityId` TEXT NOT NULL, `operation` TEXT NOT NULL, `attemptCount` INTEGER NOT NULL, `lastAttemptAt` INTEGER NOT NULL, `nextAttemptAt` INTEGER NOT NULL, `lastError` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityType",
+            "columnName": "entityType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityId",
+            "columnName": "entityId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "operation",
+            "columnName": "operation",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attemptCount",
+            "columnName": "attemptCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastAttemptAt",
+            "columnName": "lastAttemptAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nextAttemptAt",
+            "columnName": "nextAttemptAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastError",
+            "columnName": "lastError",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_sync_queue_nextAttemptAt",
+            "unique": false,
+            "columnNames": [
+              "nextAttemptAt"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_sync_queue_nextAttemptAt` ON `${TABLE_NAME}` (`nextAttemptAt`)"
+          },
+          {
+            "name": "index_sync_queue_entityId_entityType",
+            "unique": false,
+            "columnNames": [
+              "entityId",
+              "entityType"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_sync_queue_entityId_entityType` ON `${TABLE_NAME}` (`entityId`, `entityType`)"
+          }
+        ]
+      },
+      {
+        "tableName": "assets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`assetId` TEXT NOT NULL, `name` TEXT NOT NULL, `category` TEXT NOT NULL, `linkedDeviceId` TEXT, `purchaseDateEpochMs` INTEGER NOT NULL, `purchasePrice` REAL NOT NULL, `residualValue` REAL NOT NULL, `depreciationMethod` TEXT NOT NULL, `usefulLifeMonths` INTEGER, `expectedCycles` INTEGER, `cyclesAllocatedCount` INTEGER NOT NULL, `lastAllocatedAtEpochMs` INTEGER, `retiredDateEpochMs` INTEGER, `retirementValue` REAL, `status` TEXT NOT NULL, `ownerUserId` TEXT NOT NULL, `syncStateInt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, `syncId` TEXT NOT NULL, `deleted` INTEGER NOT NULL, `pendingSync` INTEGER NOT NULL, `syncState` TEXT NOT NULL, `syncError` TEXT, `localUpdatedAt` INTEGER NOT NULL, `serverUpdatedAt` INTEGER, `cloudId` TEXT NOT NULL, PRIMARY KEY(`assetId`))",
+        "fields": [
+          {
+            "fieldPath": "assetId",
+            "columnName": "assetId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "linkedDeviceId",
+            "columnName": "linkedDeviceId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "purchaseDateEpochMs",
+            "columnName": "purchaseDateEpochMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "purchasePrice",
+            "columnName": "purchasePrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "residualValue",
+            "columnName": "residualValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "depreciationMethod",
+            "columnName": "depreciationMethod",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usefulLifeMonths",
+            "columnName": "usefulLifeMonths",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "expectedCycles",
+            "columnName": "expectedCycles",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "cyclesAllocatedCount",
+            "columnName": "cyclesAllocatedCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastAllocatedAtEpochMs",
+            "columnName": "lastAllocatedAtEpochMs",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "retiredDateEpochMs",
+            "columnName": "retiredDateEpochMs",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "retirementValue",
+            "columnName": "retirementValue",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerUserId",
+            "columnName": "ownerUserId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncStateInt",
+            "columnName": "syncStateInt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pendingSync",
+            "columnName": "pendingSync",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncError",
+            "columnName": "syncError",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "localUpdatedAt",
+            "columnName": "localUpdatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serverUpdatedAt",
+            "columnName": "serverUpdatedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "cloudId",
+            "columnName": "cloudId",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "assetId"
+          ]
+        }
+      },
+      {
+        "tableName": "asset_allocation_events",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`allocationId` TEXT NOT NULL, `assetId` TEXT NOT NULL, `scopeType` TEXT NOT NULL, `scopeId` TEXT NOT NULL, `periodKey` TEXT NOT NULL, `amount` REAL NOT NULL, `ownerUserId` TEXT NOT NULL, `syncStateInt` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `syncId` TEXT NOT NULL, `deleted` INTEGER NOT NULL, `pendingSync` INTEGER NOT NULL, `syncState` TEXT NOT NULL, `syncError` TEXT, `localUpdatedAt` INTEGER NOT NULL, `serverUpdatedAt` INTEGER, `cloudId` TEXT NOT NULL, PRIMARY KEY(`allocationId`))",
+        "fields": [
+          {
+            "fieldPath": "allocationId",
+            "columnName": "allocationId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "assetId",
+            "columnName": "assetId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scopeType",
+            "columnName": "scopeType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scopeId",
+            "columnName": "scopeId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "periodKey",
+            "columnName": "periodKey",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerUserId",
+            "columnName": "ownerUserId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncStateInt",
+            "columnName": "syncStateInt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pendingSync",
+            "columnName": "pendingSync",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncError",
+            "columnName": "syncError",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "localUpdatedAt",
+            "columnName": "localUpdatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serverUpdatedAt",
+            "columnName": "serverUpdatedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "cloudId",
+            "columnName": "cloudId",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "allocationId"
+          ]
+        }
+      },
+      {
+        "tableName": "cost_basis_ledger",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`entryId` TEXT NOT NULL, `entityType` TEXT NOT NULL, `entityId` TEXT NOT NULL, `sourceType` TEXT NOT NULL, `amount` REAL NOT NULL, `ownerUserId` TEXT NOT NULL, `syncStateInt` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `syncId` TEXT NOT NULL, `deleted` INTEGER NOT NULL, `pendingSync` INTEGER NOT NULL, `syncState` TEXT NOT NULL, `syncError` TEXT, `localUpdatedAt` INTEGER NOT NULL, `serverUpdatedAt` INTEGER, `cloudId` TEXT NOT NULL, PRIMARY KEY(`entryId`))",
+        "fields": [
+          {
+            "fieldPath": "entryId",
+            "columnName": "entryId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityType",
+            "columnName": "entityType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityId",
+            "columnName": "entityId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceType",
+            "columnName": "sourceType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ownerUserId",
+            "columnName": "ownerUserId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncStateInt",
+            "columnName": "syncStateInt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncId",
+            "columnName": "syncId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pendingSync",
+            "columnName": "pendingSync",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncState",
+            "columnName": "syncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncError",
+            "columnName": "syncError",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "localUpdatedAt",
+            "columnName": "localUpdatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serverUpdatedAt",
+            "columnName": "serverUpdatedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "cloudId",
+            "columnName": "cloudId",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "entryId"
+          ]
+        }
+      },
+      {
+        "tableName": "incubation_measurements",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `incubationId` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL, `temperatureC` REAL, `humidityPercent` INTEGER, `source` TEXT NOT NULL, `rawText` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "incubationId",
+            "columnName": "incubationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "temperatureC",
+            "columnName": "temperatureC",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "humidityPercent",
+            "columnName": "humidityPercent",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "source",
+            "columnName": "source",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rawText",
+            "columnName": "rawText",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_incubation_measurements_incubationId",
+            "unique": false,
+            "columnNames": [
+              "incubationId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_incubation_measurements_incubationId` ON `${TABLE_NAME}` (`incubationId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "egg_reservation",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `incubationId` INTEGER NOT NULL, `productionLogId` TEXT NOT NULL, `reservedCount` INTEGER NOT NULL, `createdAtEpochMillis` INTEGER NOT NULL, FOREIGN KEY(`incubationId`) REFERENCES `incubations`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`productionLogId`) REFERENCES `egg_production`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "incubationId",
+            "columnName": "incubationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productionLogId",
+            "columnName": "productionLogId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reservedCount",
+            "columnName": "reservedCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtEpochMillis",
+            "columnName": "createdAtEpochMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_egg_reservation_incubationId",
+            "unique": false,
+            "columnNames": [
+              "incubationId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_egg_reservation_incubationId` ON `${TABLE_NAME}` (`incubationId`)"
+          },
+          {
+            "name": "index_egg_reservation_productionLogId",
+            "unique": false,
+            "columnNames": [
+              "productionLogId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_egg_reservation_productionLogId` ON `${TABLE_NAME}` (`productionLogId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "incubations",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "incubationId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "egg_production",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "productionLogId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "domain_event",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `entityType` TEXT NOT NULL, `entityId` INTEGER NOT NULL, `eventType` TEXT NOT NULL, `payloadJson` TEXT, `createdAtEpochMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityType",
+            "columnName": "entityType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityId",
+            "columnName": "entityId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eventType",
+            "columnName": "eventType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "payloadJson",
+            "columnName": "payloadJson",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "createdAtEpochMillis",
+            "columnName": "createdAtEpochMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_domain_event_entityType",
+            "unique": false,
+            "columnNames": [
+              "entityType"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_domain_event_entityType` ON `${TABLE_NAME}` (`entityType`)"
+          },
+          {
+            "name": "index_domain_event_entityId",
+            "unique": false,
+            "columnNames": [
+              "entityId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_domain_event_entityId` ON `${TABLE_NAME}` (`entityId`)"
+          },
+          {
+            "name": "index_domain_event_eventType",
+            "unique": false,
+            "columnNames": [
+              "eventType"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_domain_event_eventType` ON `${TABLE_NAME}` (`eventType`)"
+          },
+          {
+            "name": "index_domain_event_createdAtEpochMillis",
+            "unique": false,
+            "columnNames": [
+              "createdAtEpochMillis"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_domain_event_createdAtEpochMillis` ON `${TABLE_NAME}` (`createdAtEpochMillis`)"
+          },
+          {
+            "name": "index_domain_event_createdAt_desc",
+            "unique": false,
+            "columnNames": [
+              "createdAtEpochMillis"
+            ],
+            "orders": [
+              "DESC"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_domain_event_createdAt_desc` ON `${TABLE_NAME}` (`createdAtEpochMillis` DESC)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4a01a42e627bf4d58b9224d3915e5053')"
+    ]
+  }
+}

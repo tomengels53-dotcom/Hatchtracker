@@ -1,0 +1,21 @@
+{
+    "name": "hatchtracker-admin-scripts",
+    "version": "1.0.0",
+    "description": "Administrative scripts for HatchTracker Firestore management",
+    "main": "seedBreedStandards.js",
+    "scripts": {
+        "seed": "ts-node seed.ts",
+        "seed:dry": "ts-node seed.ts --dry-run",
+        "seed:breeds": "ts-node seed.ts --only breeds",
+        "seed:roles": "ts-node seed.ts --only roles",
+        "seed:tiers": "ts-node seed.ts --only tiers",
+        "seed:profiles": "ts-node seed.ts --only profiles",
+        "seed:devices": "ts-node seed.ts --only devices"
+    },
+    "dependencies": {
+        "firebase-admin": "^11.11.1",
+        "protobufjs": "^7.5.4",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.0"
+    }
+}

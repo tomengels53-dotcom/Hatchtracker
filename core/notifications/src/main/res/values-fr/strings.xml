@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">Alertes HatchBase</string>
+    <string name="notification_channel_description">Notifications des eclosions a venir</string>
+    <string name="notification_generic_title">Notification</string>
+    <string name="notification_incubation_reminder_title">Rappel incubation</string>
+    <string name="notification_nursery_reminder_title">Rappel elevage</string>
+    <string name="notification_unknown_bird">Oiseau inconnu</string>
+    <string name="notification_hatch_alert_title">Alerte HatchBase</string>
+    <string name="notification_hatch_alert_text">Les oeufs de %1$s eclosent demain</string>
+    <string name="notification_hatch_alert_big_text">Alerte HatchBase: Les oeufs de %1$s eclosent demain (Prevu: %2$s)</string>
+    <string name="notification_week2_title">Controle elevage - semaine 2</string>
+    <string name="notification_week2_message">%1$s: verifier temperature, secheresse de la litiere et croissance des poussins.</string>
+    <string name="notification_growout_title">Pret pour le parc de croissance</string>
+    <string name="notification_growout_message">%1$s: le lot peut etre pret a etre deplace aujourd hui.</string>
+    <string name="notification_stop_turning_title">Incubateur: arreter le retournement</string>
+    <string name="notification_stop_turning_message">Aujourd hui est le dernier jour de retournement. Preparez le lockdown de demain.</string>
+    <string name="notification_lockdown_title">Incubateur: mode lockdown</string>
+    <string name="notification_lockdown_message">Le lockdown commence aujourd hui. Montez humidite a %1$d%% et gardez le couvercle ferme.</string>
+    <string name="notification_hatch_window_title">Incubateur: fenetre eclosion ouverte</string>
+    <string name="notification_hatch_window_message">Les poussins peuvent commencer a percer bientot. Restez patient et evitez ouvrir incubateur.</string>
+    <string name="notification_cooling_start_title">Demarrer le refroidissement</string>
+    <string name="notification_cooling_start_message">Commencez la routine quotidienne de refroidissement pour les oeufs de %1$s.</string>
+    <string name="notification_temp_alert_title">Alerte temperature</string>
+    <string name="notification_temp_low_message">Temperature trop basse (%.1f)</string>
+    <string name="notification_temp_high_message">Temperature trop elevee (%.1f)</string>
+    <string name="notification_humidity_alert_title">Alerte humidite</string>
+    <string name="notification_humidity_low_message">Humidite trop basse (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Humidite trop elevee (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Rappel Hatchy</string>
+    <string name="hatchy_lockdown_reminder">Le lockdown commence demain. Vous devriez peut-etre arreter de retourner les oeufs.</string>
+    <string name="hatchy_hatch_window_reminder">La fenetre eclosion commence demain. Preparez votre eleveuse.</string>
+    <string name="hatchy_brooder_temp_reminder">Controle eleveuse: Pour des poussins de %1$d jours, la temperature recommandee est %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Comment vont les poussins %1$s aujourd hui?</string>
+    <string name="hatchy_flock_ready_reminder">Ils grandissent vite. Ces jeunes poulets peuvent etre prets a rejoindre le troupeau adulte.</string>
+</resources>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">HatchBase-meldingen</string>
+    <string name="notification_channel_description">Meldingen over aankomende uitkomst</string>
+    <string name="notification_generic_title">Melding</string>
+    <string name="notification_incubation_reminder_title">Incubatieherinnering</string>
+    <string name="notification_nursery_reminder_title">Opfokherinnering</string>
+    <string name="notification_unknown_bird">Onbekende vogel</string>
+    <string name="notification_hatch_alert_title">HatchBase-melding</string>
+    <string name="notification_hatch_alert_text">Eieren van %1$s komen morgen uit</string>
+    <string name="notification_hatch_alert_big_text">HatchBase-melding: Eieren van %1$s komen morgen uit (Verwacht: %2$s)</string>
+    <string name="notification_week2_title">Week 2 opfokcontrole</string>
+    <string name="notification_week2_message">%1$s: controleer temperatuur, droog strooisel en groei van kuikens.</string>
+    <string name="notification_growout_title">Klaar voor opfokhok</string>
+    <string name="notification_growout_message">%1$s: deze groep kan vandaag klaar zijn om te verplaatsen.</string>
+    <string name="notification_stop_turning_title">Broedmachine: stop met draaien</string>
+    <string name="notification_stop_turning_message">Vandaag is de laatste draaidag. Bereid je voor op lockdown morgen.</string>
+    <string name="notification_lockdown_title">Broedmachine: lockdown</string>
+    <string name="notification_lockdown_message">Lockdown start vandaag. Verhoog luchtvochtigheid naar %1$d%% en houd de klep dicht.</string>
+    <string name="notification_hatch_window_title">Broedmachine: uitkomstvenster open</string>
+    <string name="notification_hatch_window_message">Kuikens kunnen snel beginnen met pikken. Blijf geduldig en open de broedmachine niet.</string>
+    <string name="notification_cooling_start_title">Start koeling</string>
+    <string name="notification_cooling_start_message">Begin de dagelijkse koelroutine voor %1$s-eieren.</string>
+    <string name="notification_temp_alert_title">Temperatuurwaarschuwing</string>
+    <string name="notification_temp_low_message">Temperatuur te laag (%.1f)</string>
+    <string name="notification_temp_high_message">Temperatuur te hoog (%.1f)</string>
+    <string name="notification_humidity_alert_title">Vochtigheidswaarschuwing</string>
+    <string name="notification_humidity_low_message">Vochtigheid te laag (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Vochtigheid te hoog (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Hatchy-herinnering</string>
+    <string name="hatchy_lockdown_reminder">Lockdown start morgen. Mogelijk moet je stoppen met eieren draaien.</string>
+    <string name="hatchy_hatch_window_reminder">Het verwachte uitkomstvenster start morgen. Maak de opfok klaar.</string>
+    <string name="hatchy_brooder_temp_reminder">Brooder-check: Voor kuikens van %1$d dagen is de aanbevolen temperatuur %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Hoe gaat het vandaag met de %1$s-kuikens?</string>
+    <string name="hatchy_flock_ready_reminder">Ze groeien snel. Deze jonge kippen zijn mogelijk klaar voor de volwassen toom.</string>
+</resources>

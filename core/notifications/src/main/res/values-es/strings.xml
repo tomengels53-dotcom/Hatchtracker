@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">Alertas de HatchBase</string>
+    <string name="notification_channel_description">Notificaciones sobre proximos nacimientos</string>
+    <string name="notification_generic_title">Notificacion</string>
+    <string name="notification_incubation_reminder_title">Recordatorio de incubacion</string>
+    <string name="notification_nursery_reminder_title">Recordatorio de criadora</string>
+    <string name="notification_unknown_bird">Ave desconocida</string>
+    <string name="notification_hatch_alert_title">Alerta de HatchBase</string>
+    <string name="notification_hatch_alert_text">Los huevos de %1$s eclosionaran manana</string>
+    <string name="notification_hatch_alert_big_text">Alerta de HatchBase: Los huevos de %1$s eclosionaran manana (Esperado: %2$s)</string>
+    <string name="notification_week2_title">Revision de criadora - semana 2</string>
+    <string name="notification_week2_message">%1$s: revisa temperatura, cama seca y crecimiento de los pollitos.</string>
+    <string name="notification_growout_title">Listo para corral de crecimiento</string>
+    <string name="notification_growout_message">%1$s: el lote podria estar listo para trasladarse hoy.</string>
+    <string name="notification_stop_turning_title">Incubadora: detener giro</string>
+    <string name="notification_stop_turning_message">Hoy es el ultimo dia de giro. Preparate para lockdown manana.</string>
+    <string name="notification_lockdown_title">Incubadora: inicio de lockdown</string>
+    <string name="notification_lockdown_message">El lockdown empieza hoy. Sube la humedad a %1$d%% y manten la tapa cerrada.</string>
+    <string name="notification_hatch_window_title">Incubadora: ventana de eclosion abierta</string>
+    <string name="notification_hatch_window_message">Los pollitos pueden empezar a picar pronto. Ten paciencia y no abras la incubadora.</string>
+    <string name="notification_cooling_start_title">Iniciar enfriamiento</string>
+    <string name="notification_cooling_start_message">Comienza la rutina diaria de enfriamiento para huevos de %1$s.</string>
+    <string name="notification_temp_alert_title">Alerta de temperatura</string>
+    <string name="notification_temp_low_message">Temperatura demasiado baja (%.1f)</string>
+    <string name="notification_temp_high_message">Temperatura demasiado alta (%.1f)</string>
+    <string name="notification_humidity_alert_title">Alerta de humedad</string>
+    <string name="notification_humidity_low_message">Humedad demasiado baja (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Humedad demasiado alta (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Recordatorio de Hatchy</string>
+    <string name="hatchy_lockdown_reminder">El lockdown empieza manana. Quizas debas dejar de girar los huevos.</string>
+    <string name="hatchy_hatch_window_reminder">La ventana de eclosion empieza manana. Prepara la criadora.</string>
+    <string name="hatchy_brooder_temp_reminder">Control de criadora: Para pollitos de %1$d dias, la temperatura recomendada es %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Como van hoy los pollitos de %1$s?</string>
+    <string name="hatchy_flock_ready_reminder">Crecen rapido. Estos pollitos pueden estar listos para unirse al lote adulto.</string>
+</resources>

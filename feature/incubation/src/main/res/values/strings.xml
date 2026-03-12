@@ -1,0 +1,70 @@
+<resources>
+    <!-- HatchOutcomeScreen -->
+    <string name="record_hatch_outcome_title">Record Hatch Outcome</string>
+    <string name="incubation_for_format">Incubation for %1$s</string>
+    <string name="total_eggs_set_format">Total Eggs Set: %1$d</string>
+    <string name="label_hatched_format">Hatched: %1$d</string>
+    <string name="label_infertile_format">Infertile: %1$d</string>
+    <string name="label_failed_format">Failed / Early Death: %1$d</string>
+    <string name="error_total_exceeds_format">Error: Total counts exceed eggs set (%1$d)</string>
+    <string name="creating_birds_format">Creating %1$d new birds in flock.</string>
+    <string name="selling_question">Selling any chicks or eggs?</string>
+    <string name="record_revenue_button">Record Revenue</string>
+    <string name="error_generic_format">Error: %1$s</string>
+    <string name="cancel_action">Cancel</string>
+    <string name="finalize_button">Finalize &amp; Create Flock</string>
+    
+    <!-- Nursery Dialog -->
+    <string name="move_to_nursery_title">Move to Nursery?</string>
+    <string name="move_to_nursery_msg_format">Would you like to move the %1$d hatched chicks to the Nursery?</string>
+    <string name="yes_move_to_nursery">Yes, Move to Nursery</string>
+    <string name="no_skip_nursery">No, Skip Nursery</string>
+
+    <!-- HatchPlannerScreen -->
+    <string name="hatch_planner_title">Hatch Planning &amp; Forecast</string>
+    <string name="forecasting_intro_format">Forecasting uses a weighted average of your last %1$d successful hatches, favoring recent performance.</string>
+    <string name="not_enough_data_msg">Not enough historical data to generate a precise forecast. Using global defaults.</string>
+    <string name="assumptions_header">Assumptions</string>
+    <string name="planned_egg_count_label">Planned Egg Count</string>
+    <string name="planned_eggs_display_format">%1$d eggs</string>
+    <string name="expected_hatch_rate_label">Expected Hatch Rate</string>
+    <string name="projections_header">Projections</string>
+    <string name="estimated_total_cost_label">Estimated Total Cost</string>
+    <string name="total_investment_subtitle">Total investment for this batch</string>
+    <string name="per_egg_label">Per Egg</string>
+    <string name="per_chick_label">Per Chick</string>
+    <string name="confidence_level_format">Confidence level: %1$s (Variance: %2$s)</string>
+    <string name="confidence_high">High</string>
+    <string name="confidence_medium">Medium</string>
+    <string name="planning_disclaimer">Predictions are for planning purposes and do not guarantee actual costs.</string>
+
+    <!-- HatchSummaryScreen -->
+    <string name="confirm_add_to_flock_action">Confirm &amp; Add to Flock</string>
+    <string name="hatch_summary_title">Hatch Summary</string>
+    <string name="hatch_rate_label">Hatch Rate</string>
+    <string name="summary_label">Summary</string>
+    <string name="review_new_members_format">Review New Flock Members (%1$d)</string>
+    <string name="unnamed_chick">Unnamed Chick</string>
+    <string name="unsexed_label">Unsexed</string>
+    <string name="name_id_label">Name/ID</string>
+
+    <!-- IncubationTimelineScreen -->
+    <string name="timeline_title_format">%1$s Timeline</string>
+    <string name="lockdown_label">LOCKDOWN</string>
+    <string name="hatching_label">HATCHING</string>
+    <string name="hatch_rate_percent_format">%1$d%%</string>
+
+    <!-- Incubation Tasks -->
+    <string name="task_turn_eggs">Turn eggs (3-5 times daily)</string>
+    <string name="task_stop_turning">STOP turning eggs (Final Turn)</string>
+    <string name="task_cool_eggs_format">Cool eggs for %1$s minutes</string>
+    <string name="task_mist_eggs">Mist eggs with lukewarm water</string>
+    <string name="task_candle_eggs_format">Candle eggs today (Day %1$d check)</string>
+    <string name="task_lockdown_mode">Enter LOCKDOWN mode</string>
+    <string name="task_humidity_increase_format">Increase humidity to %1$d-%2$d%%</string>
+    <string name="task_ventilation_increase">Increase ventilation</string>
+    <string name="task_check_params">Check Temperature &amp; Humidity</string>
+    <string name="task_turn_eggs_simple">Turn eggs</string>
+    <string name="task_final_turn">FINAL TURN today</string>
+    <string name="task_enter_lockdown">Enter LOCKDOWN</string>
+</resources>

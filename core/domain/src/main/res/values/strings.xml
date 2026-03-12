@@ -1,0 +1,5 @@
+<resources>
+    <string name="finance_market_local">Local</string>
+    <string name="finance_market_breeder">Breeder</string>
+    <string name="finance_market_wholesale">Wholesale</string>
+</resources>

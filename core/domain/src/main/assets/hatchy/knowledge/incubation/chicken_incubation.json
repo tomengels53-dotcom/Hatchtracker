@@ -1,0 +1,53 @@
+{
+    "metadata": {
+        "schemaVersion": "1.0",
+        "datasetVersion": "1.0",
+        "speciesCoverage": [
+            "CHICKEN"
+        ]
+    },
+    "knowledge": [
+        {
+            "topic": "DURATION",
+            "species": "CHICKEN",
+            "content": "Chicken eggs typically take 21 days to hatch. Ensure your incubator is stable throughout this period.",
+            "keywords": [
+                "how long",
+                "days",
+                "period"
+            ]
+        },
+        {
+            "topic": "HUMIDITY",
+            "species": "CHICKEN",
+            "content": "For chickens, keep humidity at 45-50% for the first 18 days, then increase to 65-70% for lockdown (days 19-21).",
+            "keywords": [
+                "humidity",
+                "moisture",
+                "wet"
+            ]
+        },
+        {
+            "topic": "TEMPERATURE",
+            "species": "CHICKEN",
+            "content": "Maintain a steady temperature of 99.5°F (37.5°C) in a forced-air incubator, or 101-102°F in a still-air unit.",
+            "keywords": [
+                "temperature",
+                "temp",
+                "heat",
+                "degrees"
+            ]
+        },
+        {
+            "topic": "LOCKDOWN",
+            "species": "CHICKEN",
+            "content": "Lockdown for chickens starts on day 18. Stop turning the eggs, increase humidity, and don't open the incubator until the hatch is complete.",
+            "keywords": [
+                "lockdown",
+                "stop turning",
+                "day 18",
+                "day 19"
+            ]
+        }
+    ]
+}

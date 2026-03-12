@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">HatchBase Alerts</string>
+    <string name="notification_channel_description">Notifications for upcoming egg hatches</string>
+
+    <string name="notification_generic_title">Notification</string>
+    <string name="notification_incubation_reminder_title">Incubation Reminder</string>
+    <string name="notification_nursery_reminder_title">Nursery Reminder</string>
+    <string name="notification_unknown_bird">Unknown Bird</string>
+
+    <string name="notification_hatch_alert_title">HatchBase Alert</string>
+    <string name="notification_hatch_alert_text">Eggs of %1$s will hatch tomorrow</string>
+    <string name="notification_hatch_alert_big_text">HatchBase alert: Eggs of %1$s will hatch tomorrow (Expected: %2$s)</string>
+
+    <string name="notification_week2_title">Week 2 Brooder Check</string>
+    <string name="notification_week2_message">%1$s: check brooder temp, bedding dryness, and chick growth.</string>
+    <string name="notification_growout_title">Ready for Grow-Out Pen</string>
+    <string name="notification_growout_message">%1$s: batch may be ready to move to grow-out pen today.</string>
+
+    <string name="notification_stop_turning_title">Hatcher: Stop Turning</string>
+    <string name="notification_stop_turning_message">Today\'s the last day for turning. Get ready for lockdown tomorrow, the chicks need their rest.</string>
+    <string name="notification_lockdown_title">Hatcher: Lockdown Time</string>
+    <string name="notification_lockdown_message">Lockdown starts today. Raise humidity to %1$d%% and keep the lid shut tight.</string>
+    <string name="notification_hatch_window_title">Hatcher: Hatch Window Open</string>
+    <string name="notification_hatch_window_message">Chicks may start pipping soon. Stay patient and avoid opening the incubator.</string>
+    <string name="notification_cooling_start_title">Start Cooling</string>
+    <string name="notification_cooling_start_message">Begin the daily cooling routine for %1$s eggs.</string>
+
+    <string name="notification_temp_alert_title">Temperature Alert</string>
+    <string name="notification_temp_low_message">Temperature too low (%.1f)</string>
+    <string name="notification_temp_high_message">Temperature too high (%.1f)</string>
+    <string name="notification_humidity_alert_title">Humidity Alert</string>
+    <string name="notification_humidity_low_message">Humidity too low (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Humidity too high (%1$d%%)</string>
+
+    <string name="hatchy_reminders_title">Hatchy Reminder</string>
+
+    <string name="hatchy_lockdown_reminder">Lockdown starts tomorrow. You may want to stop turning eggs.</string>
+    <string name="hatchy_hatch_window_reminder">Expected hatch window opens tomorrow. Get your brooder ready.</string>
+
+    <string name="hatchy_brooder_temp_reminder">Brooder check: For chicks aged %1$d days, the recommended temperature is %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Checking in. How are the %1$s chicks doing today?</string>
+
+    <string name="hatchy_flock_ready_reminder">Growing fast. These flocklets may be ready to join an adult flock.</string>
+</resources>

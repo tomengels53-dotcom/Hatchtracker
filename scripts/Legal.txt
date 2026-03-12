@@ -1,0 +1,170 @@
+You are a principal Android architect, security engineer, compliance officer, and build-system expert.
+
+Your task is to perform a COMPLETE, SYSTEM-WIDE AUDIT of this Android project.
+
+This is a GOD-MODE review. Assume NOTHING works unless proven.
+
+══════════════════════════════════════════
+PRIMARY GOAL
+══════════════════════════════════════════
+Ensure the app:
+- NEVER crashes on launch or navigation
+- Enforces correct authentication flow
+- Enforces legal compliance (GDPR / Google Play)
+- Handles subscriptions safely and correctly
+- Is future-proof against SDK, Gradle, Kotlin, and policy changes
+
+══════════════════════════════════════════
+SCOPE (ABSOLUTELY EVERYTHING)
+══════════════════════════════════════════
+Analyze ALL files including but not limited to:
+- Gradle (root + modules, version catalogs, plugins)
+- AndroidManifest
+- Navigation graphs
+- Splash / Welcome / Auth / Main flows
+- ViewModels, Repositories, DAOs
+- Hilt modules & dependency graph
+- Firebase initialization
+- Billing & subscription logic
+- Session management
+- Legal acceptance logic
+- Settings & Profile screens
+- Crash handling
+- Logcat patterns
+- Feature flags & build variants
+
+══════════════════════════════════════════
+AUTHENTICATION & SESSION (MANDATORY)
+══════════════════════════════════════════
+VERIFY:
+- Welcome screen is ALWAYS first on fresh install
+- Auto-login ONLY happens when session is valid
+- Login is NOT required on normal restarts or updates
+- Logout ALWAYS clears session correctly
+- Session is invalidated on:
+  - Token expiry
+  - Account disabled/deleted
+  - Legal re-acceptance required
+  - Critical security upgrade
+
+ENSURE:
+- Single source of truth for session state
+- Sealed-state model (Unauthenticated / Authenticated / Blocked)
+- No race conditions during app start
+- Navigation guards block protected routes
+
+══════════════════════════════════════════
+LEGAL & GDPR (NON-NEGOTIABLE)
+══════════════════════════════════════════
+VERIFY:
+- Mandatory consent checkbox on Sign-Up
+- Terms & Privacy links are reachable and correct
+- Versioned acceptance storage exists
+- Acceptance is immutable per version
+- Re-acceptance is forced on version change
+- Acceptance survives app restarts & updates
+
+ENSURE:
+- Legal gate blocks all app functionality if unmet
+- Acceptance timestamps are stored
+- Logic is GDPR-compliant and auditable
+
+══════════════════════════════════════════
+SUBSCRIPTIONS & BILLING
+══════════════════════════════════════════
+VERIFY:
+- Billing state is the ONLY source of truth
+- Premium features are gated correctly
+- Downgrade does NOT log user out
+- Grace period is handled correctly
+- Offline billing edge cases are safe
+- No crash paths when billing info is delayed
+
+ENSURE:
+- Subscription state machine exists
+- UI reflects actual entitlement
+- No reliance on cached UI flags
+
+══════════════════════════════════════════
+NAVIGATION & UI FLOW
+══════════════════════════════════════════
+VERIFY:
+- Logical screen order:
+  Welcome → Auth → Legal (if needed) → Main
+- No bypass paths via deep links
+- Back stack is correct
+- State restoration does not skip screens
+
+ENSURE:
+- Navigation guards exist
+- Illegal states are impossible
+- Errors fail safely, not silently
+
+══════════════════════════════════════════
+DEPENDENCY INJECTION (HILT)
+══════════════════════════════════════════
+VERIFY:
+- NO missing bindings
+- ALL repositories, DAOs, managers are injectable
+- Correct scopes are used
+- No circular dependencies
+- Generated code is stable
+
+ENSURE:
+- Clear module structure
+- No runtime DI failures possible
+
+══════════════════════════════════════════
+BUILD SYSTEM & FUTURE-PROOFING
+══════════════════════════════════════════
+VERIFY:
+- Java 17+ configuration is correct
+- Gradle & AGP versions are compatible
+- Kotlin warnings that will become errors are FIXED
+- Compiler flags are future-safe
+- Deprecated APIs are removed
+
+ENSURE:
+- Build succeeds cleanly
+- No warnings that indicate future breakage
+- Clear upgrade path
+
+══════════════════════════════════════════
+CRASH & LOGCAT ANALYSIS
+══════════════════════════════════════════
+SCAN FOR:
+- Startup crashes
+- Nullability issues
+- Navigation crashes
+- DI crashes
+- Race conditions
+
+ENSURE:
+- All crashes have deterministic fixes
+- No silent failure paths exist
+- App cannot enter an undefined state
+
+══════════════════════════════════════════
+OUTPUT REQUIREMENTS
+══════════════════════════════════════════
+You MUST:
+1. List ALL critical issues (even if not crashing yet)
+2. Categorize issues by severity:
+   - BLOCKER
+   - HIGH RISK
+   - MEDIUM
+   - LOW
+3. Provide FIXES for each issue
+4. Explain WHY the fix is needed
+5. Identify future risks and how to prevent them
+6. Confirm whether the app is:
+   ✅ Production-safe
+   ❌ Needs more work
+
+DO NOT:
+- Assume developer intent
+- Skip files
+- Ignore warnings
+- Provide vague advice
+
+This audit must leave ZERO uncertainty.

@@ -1,0 +1,821 @@
+{
+  "generatedAt": "2026-03-12T08:11:44.809703600Z",
+  "loci": [
+    {
+      "locusId": "Ab_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Ab","ab+"],
+      "defaultWildtype": "ab+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "BR_Locus",
+      "species": "CHICKEN",
+      "alleles": ["BR","br+"],
+      "defaultWildtype": "br+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "B_Locus",
+      "species": "CHICKEN",
+      "alleles": ["B","b+"],
+      "defaultWildtype": "b+",
+      "inheritance": "Z_LINKED",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Bc_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Bc","bc+"],
+      "defaultWildtype": "bc+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Bl_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Bl","bl+"],
+      "defaultWildtype": "bl+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "INCOMPLETE"
+    },
+    {
+      "locusId": "Co_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Co","co+"],
+      "defaultWildtype": "co+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Cr_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Cr","cr+"],
+      "defaultWildtype": "cr+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__Bl_Locus",
+      "species": "DUCK",
+      "alleles": ["Bl","bl+"],
+      "defaultWildtype": "bl+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__Bu_Locus",
+      "species": "DUCK",
+      "alleles": ["Bu","bu+"],
+      "defaultWildtype": "bu+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__COL_Locus",
+      "species": "DUCK",
+      "alleles": ["Col","col+"],
+      "defaultWildtype": "col+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__C_Locus",
+      "species": "DUCK",
+      "alleles": ["C","c+"],
+      "defaultWildtype": "C",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__Cr_Locus",
+      "species": "DUCK",
+      "alleles": ["Cr","cr+"],
+      "defaultWildtype": "cr+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__DIL_Locus",
+      "species": "DUCK",
+      "alleles": ["Dil","dil+"],
+      "defaultWildtype": "dil+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__D_Locus",
+      "species": "DUCK",
+      "alleles": ["D","d+"],
+      "defaultWildtype": "d+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__Dw_Locus",
+      "species": "DUCK",
+      "alleles": ["Dw","dw+"],
+      "defaultWildtype": "dw+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__ES_Locus",
+      "species": "DUCK",
+      "alleles": ["ES","es+"],
+      "defaultWildtype": "es+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__E_Locus",
+      "species": "DUCK",
+      "alleles": ["E","e+"],
+      "defaultWildtype": "e+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__Hb_Locus",
+      "species": "DUCK",
+      "alleles": ["Hb","hb+"],
+      "defaultWildtype": "hb+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__Li_Locus",
+      "species": "DUCK",
+      "alleles": ["Li","li+"],
+      "defaultWildtype": "li+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__MEL_Locus",
+      "species": "DUCK",
+      "alleles": ["Mel","mel+"],
+      "defaultWildtype": "mel+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__M_Locus",
+      "species": "DUCK",
+      "alleles": ["M","m+"],
+      "defaultWildtype": "M",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__PAT_Locus",
+      "species": "DUCK",
+      "alleles": ["Pat","pat+"],
+      "defaultWildtype": "pat+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__P_Locus",
+      "species": "DUCK",
+      "alleles": ["P","p+"],
+      "defaultWildtype": "p+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__R_Locus",
+      "species": "DUCK",
+      "alleles": ["R","r+"],
+      "defaultWildtype": "r+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__S_Locus",
+      "species": "DUCK",
+      "alleles": ["S","s+"],
+      "defaultWildtype": "s+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__Y_Locus",
+      "species": "DUCK",
+      "alleles": ["Y","y+"],
+      "defaultWildtype": "Y",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "DUCK__mo_Locus",
+      "species": "DUCK",
+      "alleles": ["Mo","mo"],
+      "defaultWildtype": "Mo",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "Dv_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Dv","dv+"],
+      "defaultWildtype": "dv+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "E_Locus",
+      "species": "CHICKEN",
+      "alleles": ["E","e+","eb"],
+      "defaultWildtype": "e+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Fm_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Fm","fm+"],
+      "defaultWildtype": "fm+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__Bl_Locus",
+      "species": "GOOSE",
+      "alleles": ["Bl","bl+"],
+      "defaultWildtype": "bl+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__Bu_Locus",
+      "species": "GOOSE",
+      "alleles": ["Bu","bu+"],
+      "defaultWildtype": "bu+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__C_Locus",
+      "species": "GOOSE",
+      "alleles": ["C","c"],
+      "defaultWildtype": "C",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__Cr_Locus",
+      "species": "GOOSE",
+      "alleles": ["Cr","cr+"],
+      "defaultWildtype": "cr+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__DIL_Locus",
+      "species": "GOOSE",
+      "alleles": ["Dil","dil+"],
+      "defaultWildtype": "dil+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__De_Locus",
+      "species": "GOOSE",
+      "alleles": ["De","de+"],
+      "defaultWildtype": "de+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__ES_Locus",
+      "species": "GOOSE",
+      "alleles": ["ES","es+"],
+      "defaultWildtype": "es+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__Gy_Locus",
+      "species": "GOOSE",
+      "alleles": ["Gy","gy+"],
+      "defaultWildtype": "gy+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__Kn_Locus",
+      "species": "GOOSE",
+      "alleles": ["Kn","kn+"],
+      "defaultWildtype": "kn+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__L_Locus",
+      "species": "GOOSE",
+      "alleles": ["L","l+"],
+      "defaultWildtype": "l+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__MEL_Locus",
+      "species": "GOOSE",
+      "alleles": ["Mel","mel+"],
+      "defaultWildtype": "mel+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "GOOSE__Sd_Locus",
+      "species": "GOOSE",
+      "alleles": ["Sd","sd+"],
+      "defaultWildtype": "sd+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Gt_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Gt","gt+"],
+      "defaultWildtype": "gt+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "H_Locus",
+      "species": "CHICKEN",
+      "alleles": ["H","h"],
+      "defaultWildtype": "H",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "Hf_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Hf","hf+"],
+      "defaultWildtype": "hf+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "I_Locus",
+      "species": "CHICKEN",
+      "alleles": ["I","i+"],
+      "defaultWildtype": "i+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Id_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Id","id+"],
+      "defaultWildtype": "id+",
+      "inheritance": "Z_LINKED",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Lg_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Lg","lg+"],
+      "defaultWildtype": "lg+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Mb_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Mb","mb+"],
+      "defaultWildtype": "mb+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Mh_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Mh","mh+"],
+      "defaultWildtype": "mh+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Mo_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Mo","mo"],
+      "defaultWildtype": "Mo",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "Na_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Na","na+"],
+      "defaultWildtype": "na+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "O_Locus",
+      "species": "CHICKEN",
+      "alleles": ["O","o"],
+      "defaultWildtype": "o",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PEAFOWL__COL_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["Col","col+"],
+      "defaultWildtype": "col+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PEAFOWL__IB_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["IB","ib"],
+      "defaultWildtype": "IB",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PEAFOWL__PAT_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["Pat","pat+"],
+      "defaultWildtype": "pat+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PEAFOWL__S_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["S","s+"],
+      "defaultWildtype": "s+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PEAFOWL__WHT_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["Wht","wht+"],
+      "defaultWildtype": "wht+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "PEAFOWL__bs_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["Bs","bs"],
+      "defaultWildtype": "Bs",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PEAFOWL__ca_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["Ca","ca"],
+      "defaultWildtype": "Ca",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PEAFOWL__pu_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["Pu","pu"],
+      "defaultWildtype": "Pu",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PEAFOWL__w_Locus",
+      "species": "PEAFOWL",
+      "alleles": ["W","w"],
+      "defaultWildtype": "W",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "PHEASANT__COL_Locus",
+      "species": "PHEASANT",
+      "alleles": ["Col","col+"],
+      "defaultWildtype": "col+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PHEASANT__DIL_Locus",
+      "species": "PHEASANT",
+      "alleles": ["Dil","dil+"],
+      "defaultWildtype": "dil+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PHEASANT__M_Locus",
+      "species": "PHEASANT",
+      "alleles": ["M","m+"],
+      "defaultWildtype": "m+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PHEASANT__Mel_Locus",
+      "species": "PHEASANT",
+      "alleles": ["Mel","mel+"],
+      "defaultWildtype": "mel+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PHEASANT__PAT_Locus",
+      "species": "PHEASANT",
+      "alleles": ["Pat","pat+"],
+      "defaultWildtype": "pat+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "PHEASANT__Wild",
+      "species": "PHEASANT",
+      "alleles": ["wt"],
+      "defaultWildtype": "wt",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "P_Locus",
+      "species": "CHICKEN",
+      "alleles": ["P","p+"],
+      "defaultWildtype": "p+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Po_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Po","po+"],
+      "defaultWildtype": "po+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Pr_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Pr","pr+"],
+      "defaultWildtype": "pr+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Pti_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Pti-1","pti+"],
+      "defaultWildtype": "pti+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "QUAIL__COL_Locus",
+      "species": "QUAIL",
+      "alleles": ["Col","col+"],
+      "defaultWildtype": "col+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "QUAIL__DIL_Locus",
+      "species": "QUAIL",
+      "alleles": ["Dil","dil+"],
+      "defaultWildtype": "dil+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "QUAIL__E_Locus",
+      "species": "QUAIL",
+      "alleles": ["E","e+"],
+      "defaultWildtype": "e+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "QUAIL__PAT_Locus",
+      "species": "QUAIL",
+      "alleles": ["Pat","pat+"],
+      "defaultWildtype": "pat+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "QUAIL__Wild",
+      "species": "QUAIL",
+      "alleles": ["wt"],
+      "defaultWildtype": "wt",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "R_Locus",
+      "species": "CHICKEN",
+      "alleles": ["R","r+"],
+      "defaultWildtype": "r+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Rp_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Rp","rp+"],
+      "defaultWildtype": "rp+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "SPECIES_Specific",
+      "species": "ALL",
+      "alleles": ["Any"],
+      "defaultWildtype": "Any",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "S_Locus",
+      "species": "CHICKEN",
+      "alleles": ["S","s+"],
+      "defaultWildtype": "s+",
+      "inheritance": "Z_LINKED",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "Sp_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Sp","sp+"],
+      "defaultWildtype": "sp+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__B_Locus",
+      "species": "TURKEY",
+      "alleles": ["B","b+"],
+      "defaultWildtype": "b+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__COL_Locus",
+      "species": "TURKEY",
+      "alleles": ["Col","col+"],
+      "defaultWildtype": "col+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__C_Locus",
+      "species": "TURKEY",
+      "alleles": ["C","c"],
+      "defaultWildtype": "C",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__DIL_Locus",
+      "species": "TURKEY",
+      "alleles": ["Dil","dil+"],
+      "defaultWildtype": "dil+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__N_Locus",
+      "species": "TURKEY",
+      "alleles": ["N","n"],
+      "defaultWildtype": "N",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__PAT_Locus",
+      "species": "TURKEY",
+      "alleles": ["Pat","pat+"],
+      "defaultWildtype": "pat+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__P_Locus",
+      "species": "TURKEY",
+      "alleles": ["P","p"],
+      "defaultWildtype": "P",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__R_Locus",
+      "species": "TURKEY",
+      "alleles": ["R","r"],
+      "defaultWildtype": "R",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "TURKEY__b_Locus",
+      "species": "TURKEY",
+      "alleles": ["b+","b"],
+      "defaultWildtype": "b+",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__c_Locus",
+      "species": "TURKEY",
+      "alleles": ["C","c"],
+      "defaultWildtype": "C",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "TURKEY__e_Locus",
+      "species": "TURKEY",
+      "alleles": ["E","e"],
+      "defaultWildtype": "E",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "TURKEY__n_Locus",
+      "species": "TURKEY",
+      "alleles": ["N","n"],
+      "defaultWildtype": "N",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "TURKEY__p_Locus",
+      "species": "TURKEY",
+      "alleles": ["P","p"],
+      "defaultWildtype": "P",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "TURKEY__sl_Locus",
+      "species": "TURKEY",
+      "alleles": ["Sl","sl"],
+      "defaultWildtype": "Sl",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "W_Locus",
+      "species": "CHICKEN",
+      "alleles": ["W","w+"],
+      "defaultWildtype": "W",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "c_Locus",
+      "species": "CHICKEN",
+      "alleles": ["C","c"],
+      "defaultWildtype": "C",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "id_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Id","id+"],
+      "defaultWildtype": "id+",
+      "inheritance": "Z_LINKED",
+      "dominance": "DOMINANT"
+    },
+    {
+      "locusId": "mo_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Mo","mo"],
+      "defaultWildtype": "Mo",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "nm_Locus",
+      "species": "CHICKEN",
+      "alleles": ["Nm","nm"],
+      "defaultWildtype": "Nm",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    },
+    {
+      "locusId": "v_Locus",
+      "species": "CHICKEN",
+      "alleles": ["V","v"],
+      "defaultWildtype": "V",
+      "inheritance": "AUTOSOMAL",
+      "dominance": "RECESSIVE"
+    }
+  ]
+}

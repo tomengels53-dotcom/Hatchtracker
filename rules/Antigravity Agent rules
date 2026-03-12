@@ -1,0 +1,161 @@
+# ============================================================
+# FLOCK MANAGEMENT APP – GLOBAL AGENT RULES
+# ============================================================
+
+# ------------------------------------------------------------
+# 1. CORE PRINCIPLES
+# ------------------------------------------------------------
+
+- This is a production-grade Android application.
+- Stability > Features.
+- Never introduce breaking changes without explicit instruction.
+- Never remove existing working functionality.
+- Never refactor large architecture sections unless explicitly requested.
+- Always preserve backward compatibility with Room migrations.
+- Always assume the app has paying subscribers.
+
+# ------------------------------------------------------------
+# 2. ARCHITECTURE RULES
+# ------------------------------------------------------------
+
+- Architecture: MVVM + Clean Architecture.
+- UI Layer: Activities / Fragments / Compose only.
+- Business logic MUST live in ViewModel or UseCase.
+- No business logic inside Activities.
+- No direct database calls from UI.
+- Repository is the only access point to data sources.
+- Data flow must be unidirectional.
+
+Layers:
+UI → ViewModel → UseCase → Repository → DataSource (Room / Firebase / Billing)
+
+Never bypass layers.
+
+# ------------------------------------------------------------
+# 3. THREADING RULES
+# ------------------------------------------------------------
+
+- All database operations MUST run on Dispatchers.IO.
+- Never block the main thread.
+- Use Coroutines only.
+- No GlobalScope.
+- ViewModelScope for UI logic.
+- Repository handles suspend functions.
+
+# ------------------------------------------------------------
+# 4. ROOM DATABASE RULES
+# ------------------------------------------------------------
+
+- NEVER delete a column from an existing entity.
+- NEVER rename a column without a proper Migration.
+- ALWAYS increment database version when schema changes.
+- ALWAYS provide explicit Migration object.
+- fallbackToDestructiveMigration() is FORBIDDEN in release builds.
+- Destructive migration allowed only if BuildConfig.DEBUG == true.
+
+- All Entities must:
+    - Have explicit primary key
+    - Use @ColumnInfo for clarity
+    - Avoid nullable unless logically required
+
+# ------------------------------------------------------------
+# 5. BILLING & SUBSCRIPTIONS
+# ------------------------------------------------------------
+
+- Subscription logic must never be bypassed.
+- Premium features must always check subscription state.
+- No hardcoded “premium = true”.
+- Billing logic must be isolated in BillingRepository.
+- Ad display logic must respect subscription state.
+
+# ------------------------------------------------------------
+# 6. ERROR HANDLING
+# ------------------------------------------------------------
+
+- No silent failures.
+- Always log errors with clear tag.
+- Never swallow exceptions.
+- Use Result wrapper or sealed class for state:
+    Loading / Success / Error
+
+# ------------------------------------------------------------
+# 7. UI RULES
+# ------------------------------------------------------------
+
+- UI must remain clean and modern.
+- No business logic in XML.
+- Avoid nested layouts when possible.
+- Use ViewBinding or Compose.
+- Maintain Light and Dark mode compatibility.
+- Do not introduce inconsistent design patterns.
+
+# ------------------------------------------------------------
+# 8. FEATURE ADDITION RULES
+# ------------------------------------------------------------
+
+When adding a new feature:
+1. Create data model
+2. Add DAO
+3. Add Repository method
+4. Add UseCase if needed
+5. Connect ViewModel
+6. Connect UI
+7. Add error state handling
+8. Add migration if schema changed
+
+Never shortcut steps.
+
+# ------------------------------------------------------------
+# 9. CODE QUALITY RULES
+# ------------------------------------------------------------
+
+- Kotlin only (no Java unless required).
+- No unused imports.
+- No duplicate logic.
+- Avoid code duplication across modules.
+- Prefer extension functions.
+- Prefer sealed classes over enums when handling states.
+
+# ------------------------------------------------------------
+# 10. SAFETY GUARDRAILS
+# ------------------------------------------------------------
+
+- Never modify applicationId.
+- Never modify signing configs.
+- Never modify Play Billing product IDs.
+- Never modify Firebase project configuration.
+- Never remove analytics tracking without request.
+- Never alter release build settings.
+
+# ------------------------------------------------------------
+# 11. TESTING REQUIREMENTS
+# ------------------------------------------------------------
+
+- Repository logic must be testable.
+- Avoid Android dependencies in business layer.
+- ViewModel logic should be unit test friendly.
+- Use fake repository for testing.
+
+# ------------------------------------------------------------
+# 12. CRASH PREVENTION POLICY
+# ------------------------------------------------------------
+
+Before finalizing changes:
+- Ensure no nullability crash.
+- Ensure no migration crash.
+- Ensure no infinite recomposition.
+- Ensure no memory leaks.
+- Ensure no blocking main thread.
+
+# ------------------------------------------------------------
+# 13. WHEN UNSURE
+# ------------------------------------------------------------
+
+If unclear:
+- Ask for clarification.
+- Do NOT guess architecture.
+- Do NOT rewrite existing structure.
+
+# ============================================================
+# END OF RULES
+# ============================================================

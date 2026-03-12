@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "26218345303",
+    "project_id": "hatchtracker-8fae7",
+    "storage_bucket": "hatchtracker-8fae7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26218345303:android:749699352e17efc5be8412",
+        "android_client_info": {
+          "package_name": "com.example.hatchtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26218345303-vcqmc5699set96fc0ajk7d8j4jd5obhr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hatchtracker",
+            "certificate_hash": "f6eff936a6c89aa014b6472f67a3578b3561f6f4"
+          }
+        },
+        {
+          "client_id": "26218345303-93lrn6sfueml7c1gnisfpv3bf33dooc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1FWNnl3TOjz6YKUici-yYriZFWhSCVAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26218345303-93lrn6sfueml7c1gnisfpv3bf33dooc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

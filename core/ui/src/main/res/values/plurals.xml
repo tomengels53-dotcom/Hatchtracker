@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="chick_count">
+        <item quantity="one">%1$d chick</item>
+        <item quantity="other">%1$d chicks</item>
+    </plurals>
+    <plurals name="egg_count">
+        <item quantity="one">%1$d egg</item>
+        <item quantity="other">%1$d eggs</item>
+    </plurals>
+    <plurals name="bird_count">
+        <item quantity="one">%1$d bird</item>
+        <item quantity="other">%1$d birds</item>
+    </plurals>
+    <plurals name="result_count">
+        <item quantity="one">%1$d result</item>
+        <item quantity="other">%1$d results</item>
+    </plurals>
+</resources>

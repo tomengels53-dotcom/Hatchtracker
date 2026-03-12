@@ -1,0 +1,38 @@
+# Admin and Developer Access Strategies for HatchTracker
+
+This document outlines the three primary methods for managing administrative and developer privileges in the HatchTracker Android application.
+
+## 1. Hardcoded Whitelist (Current Implementation)
+The application currently uses a whitelist in `DeveloperWhitelist.kt` to grant privileges based on the user's email or UID.
+
+- **Mechanism:** A static `Set` of authorized emails/UIDs in the Kotlin code.
+- **Enforcement:** The `UserRepository` checks the current logged-in user's email against this list when fetching the profile.
+- **Pros:** Extremely fast to implement; works offline once the code is compiled.
+- **Cons:** Requires a code change and app update to add or remove admins; not scalable for community management.
+- **Best Use Case:** Initial development, core team access, and debugging.
+
+## 2. Firestore Flag + Cloud Functions (Recommended for Hybrid Growth)
+An administrative UI allows existing admins to promote other users, which is then verified and applied by a secure backend.
+
+- **Mechanism:** 
+    1. An admin user initiates a "Promote" action.
+    2. A write is made to a `role_requests` collection in Firestore.
+    3. A **Firebase Cloud Function** triggers on this write, verifies the requester's authority, and updates the `isSystemAdmin` flag in the target user's profile document.
+- **Enforcement:** Security rules prevent any user from writing to their own `isSystemAdmin` field directly; only the Cloud Function (using Admin SDK) has this permission.
+- **Pros:** Dynamic management without app updates; easier to implement than Custom Claims.
+- **Cons:** Requires setting up and maintaining Firebase Cloud Functions.
+- **Best Use Case:** When the user base grows and you need to delegate moderator/admin roles to trusted community members.
+
+## 3. Firebase Custom Claims (The "Gold Standard")
+Roles are stored directly within the user's Authentication ID Token, making them unforgeable and highly performant for security rules.
+
+- **Mechanism:** A Cloud Function uses the `admin.auth().setCustomUserClaims()` method to attach a role (e.g., `{ "admin": true }`) to the user's identity.
+- **Enforcement:** Firestore security rules can directly check the token: `allow write: if request.auth.token.admin == true;`.
+- **Pros:** 
+    - **Tamper-proof:** Cannot be modified by the client, even with database exploits.
+    - **Performant:** No need to fetch a profile document to verify permissions in security rules.
+- **Cons:** Requires users to refresh their token (logout/login or wait up to 1 hour) before the change takes effect.
+- **Best Use Case:** Production environments requiring high security and granular access control.
+
+---
+*Created on 2026-02-12 for HatchTracker Technical Documentation.*

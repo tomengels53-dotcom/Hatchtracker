@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">HatchBase-varningar</string>
+    <string name="notification_channel_description">Notiser om kommande klackning</string>
+    <string name="notification_generic_title">Notis</string>
+    <string name="notification_incubation_reminder_title">Inkubationspaminnelse</string>
+    <string name="notification_nursery_reminder_title">Uppfodningspaminnelse</string>
+    <string name="notification_unknown_bird">Okand fagel</string>
+    <string name="notification_hatch_alert_title">HatchBase-varning</string>
+    <string name="notification_hatch_alert_text">Agg fran %1$s klacks i morgon</string>
+    <string name="notification_hatch_alert_big_text">HatchBase-varning: Agg fran %1$s klacks i morgon (Forvantat: %2$s)</string>
+    <string name="notification_week2_title">Vecka 2 uppfodningskontroll</string>
+    <string name="notification_week2_message">%1$s: kontrollera temperatur, torrt stro och kycklingarnas tillvaxt.</string>
+    <string name="notification_growout_title">Redo for uppvaxtyta</string>
+    <string name="notification_growout_message">%1$s: gruppen kan vara redo att flyttas idag.</string>
+    <string name="notification_stop_turning_title">Kluvningsmaskin: stoppa vandning</string>
+    <string name="notification_stop_turning_message">Idag ar sista dagen med vandning. Forbered lockdown i morgon.</string>
+    <string name="notification_lockdown_title">Kluvningsmaskin: lockdown</string>
+    <string name="notification_lockdown_message">Lockdown borjar idag. Oka luftfuktigheten till %1$d%% och hall locket stangt.</string>
+    <string name="notification_hatch_window_title">Kluvningsmaskin: klackningsfonster oppet</string>
+    <string name="notification_hatch_window_message">Kycklingar kan borja picka snart. Var talmodig och undvik att oppna inkubatorn.</string>
+    <string name="notification_cooling_start_title">Starta kylning</string>
+    <string name="notification_cooling_start_message">Starta daglig kylningsrutin for %1$s-agg.</string>
+    <string name="notification_temp_alert_title">Temperaturvarning</string>
+    <string name="notification_temp_low_message">Temperaturen ar for lag (%.1f)</string>
+    <string name="notification_temp_high_message">Temperaturen ar for hog (%.1f)</string>
+    <string name="notification_humidity_alert_title">Fuktighetsvarning</string>
+    <string name="notification_humidity_low_message">Fuktigheten ar for lag (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Fuktigheten ar for hog (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Hatchy-paminnelse</string>
+    <string name="hatchy_lockdown_reminder">Lockdown borjar i morgon. Du bor kanske sluta vanda aggen.</string>
+    <string name="hatchy_hatch_window_reminder">Forvantat klackningsfonster borjar i morgon. Gor i ordning uppfodningsladan.</string>
+    <string name="hatchy_brooder_temp_reminder">Brooder-kontroll: For kycklingar som ar %1$d dagar gamla ar rekommenderad temperatur %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Hur mar %1$s-kycklingarna idag?</string>
+    <string name="hatchy_flock_ready_reminder">De vaxer snabbt. Dessa unga faglar kan vara redo for vuxen flock.</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="moderation_listing_seller">Seller: %1$s</string>
+    <string name="moderation_queue_reason">Reason: %1$s</string>
+    <string name="moderation_queue_report_count">%1$d reports</string>
+    <string name="moderation_queue_priority">Priority: %1$d</string>
+</resources>

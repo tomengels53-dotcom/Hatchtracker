@@ -1,0 +1,10 @@
+<resources>
+    <string name="admin_tools_title">Admin Tools</string>
+    <string name="support_dashboard">Support Dashboard</string>
+    <string name="manage_breeds">Manage Breeds</string>
+    <string name="trait_promotions">Trait Promotions</string>
+    <string name="audit_logs">Audit Logs</string>
+    <string name="developer_diagnostics">Developer Diagnostics</string>
+    <string name="notification_debug">Notification Debug</string>
+    <string name="desc_back">Back</string>
+</resources>

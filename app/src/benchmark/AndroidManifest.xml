@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application>
+      <profileable android:shell="true" />
+      <activity
+          android:name="com.example.hatchtracker.app.MainActivity"
+          android:theme="@style/Theme.HatchTracker"
+          tools:replace="android:theme" />
+    </application>
+</manifest>

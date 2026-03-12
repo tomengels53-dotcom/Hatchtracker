@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">Alertas HatchBase</string>
+    <string name="notification_channel_description">Notificacoes sobre eclosoes proximas</string>
+    <string name="notification_generic_title">Notificacao</string>
+    <string name="notification_incubation_reminder_title">Lembrete de incubacao</string>
+    <string name="notification_nursery_reminder_title">Lembrete de criadeira</string>
+    <string name="notification_unknown_bird">Ave desconhecida</string>
+    <string name="notification_hatch_alert_title">Alerta HatchBase</string>
+    <string name="notification_hatch_alert_text">Os ovos de %1$s vao eclodir amanha</string>
+    <string name="notification_hatch_alert_big_text">Alerta HatchBase: Os ovos de %1$s vao eclodir amanha (Previsto: %2$s)</string>
+    <string name="notification_week2_title">Verificacao da criadeira - semana 2</string>
+    <string name="notification_week2_message">%1$s: verifique temperatura, cama seca e crescimento dos pintinhos.</string>
+    <string name="notification_growout_title">Pronto para area de crescimento</string>
+    <string name="notification_growout_message">%1$s: o lote pode estar pronto para mover hoje.</string>
+    <string name="notification_stop_turning_title">Incubadora: parar de virar</string>
+    <string name="notification_stop_turning_message">Hoje e o ultimo dia de viragem. Prepare-se para o lockdown de amanha.</string>
+    <string name="notification_lockdown_title">Incubadora: hora do lockdown</string>
+    <string name="notification_lockdown_message">O lockdown comeca hoje. Aumente a umidade para %1$d%% e mantenha a tampa fechada.</string>
+    <string name="notification_hatch_window_title">Incubadora: janela de eclosao aberta</string>
+    <string name="notification_hatch_window_message">Os pintinhos podem comecar a bicar em breve. Seja paciente e evite abrir a incubadora.</string>
+    <string name="notification_cooling_start_title">Iniciar resfriamento</string>
+    <string name="notification_cooling_start_message">Inicie a rotina diaria de resfriamento para ovos de %1$s.</string>
+    <string name="notification_temp_alert_title">Alerta de temperatura</string>
+    <string name="notification_temp_low_message">Temperatura muito baixa (%.1f)</string>
+    <string name="notification_temp_high_message">Temperatura muito alta (%.1f)</string>
+    <string name="notification_humidity_alert_title">Alerta de umidade</string>
+    <string name="notification_humidity_low_message">Umidade muito baixa (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Umidade muito alta (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Lembrete do Hatchy</string>
+    <string name="hatchy_lockdown_reminder">O lockdown comeca amanha. Talvez seja hora de parar de virar os ovos.</string>
+    <string name="hatchy_hatch_window_reminder">A janela de eclosao comeca amanha. Prepare a criadeira.</string>
+    <string name="hatchy_brooder_temp_reminder">Verificacao da criadeira: Para pintinhos com %1$d dias, a temperatura recomendada e %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Como estao os pintinhos %1$s hoje?</string>
+    <string name="hatchy_flock_ready_reminder">Estao crescendo rapido. Esses pintinhos podem estar prontos para o lote adulto.</string>
+</resources>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">Upozorneni HatchBase</string>
+    <string name="notification_channel_description">Oznameni o blizicim se lihnuti vajec</string>
+    <string name="notification_generic_title">Oznameni</string>
+    <string name="notification_incubation_reminder_title">Pripomenuti inkubace</string>
+    <string name="notification_nursery_reminder_title">Pripomenuti odchovu</string>
+    <string name="notification_unknown_bird">Neznamy ptak</string>
+    <string name="notification_hatch_alert_title">Upozorneni HatchBase</string>
+    <string name="notification_hatch_alert_text">Vejce od %1$s se vylihnu zitra</string>
+    <string name="notification_hatch_alert_big_text">Upozorneni HatchBase: Vejce od %1$s se vylihnu zitra (Ocekavano: %2$s)</string>
+    <string name="notification_week2_title">Kontrola odchovu ve 2. tydnu</string>
+    <string name="notification_week2_message">%1$s: zkontrolujte teplotu odchovny, suchost podestylky a rust kurat.</string>
+    <string name="notification_growout_title">Pripraveno do vybehu</string>
+    <string name="notification_growout_message">%1$s: hejno muze byt dnes pripravene k presunu do vybehu.</string>
+    <string name="notification_stop_turning_title">Lihen: prestat otacet</string>
+    <string name="notification_stop_turning_message">Dnes je posledni den otaceni. Pripravte se na zitrejsi lockdown, kurata potrebuji klid.</string>
+    <string name="notification_lockdown_title">Lihen: cas lockdownu</string>
+    <string name="notification_lockdown_message">Lockdown zacina dnes. Zvyste vlhkost na %1$d%% a nechte viko zavrene.</string>
+    <string name="notification_hatch_window_title">Lihen: okno lihnuti otevreno</string>
+    <string name="notification_hatch_window_message">Kurata mohou brzy zacit naklovavat. Budte trpelivi a inkubator neotevirejte.</string>
+    <string name="notification_cooling_start_title">Zacit chlazeni</string>
+    <string name="notification_cooling_start_message">Zacnete denni chladici rezim pro vejce %1$s.</string>
+    <string name="notification_temp_alert_title">Upozorneni na teplotu</string>
+    <string name="notification_temp_low_message">Teplota je prilis nizka (%.1f)</string>
+    <string name="notification_temp_high_message">Teplota je prilis vysoka (%.1f)</string>
+    <string name="notification_humidity_alert_title">Upozorneni na vlhkost</string>
+    <string name="notification_humidity_low_message">Vlhkost je prilis nizka (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Vlhkost je prilis vysoka (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Pripomenuti Hatchy</string>
+    <string name="hatchy_lockdown_reminder">Lockdown zacina zitra. Mozna je cas prestat otacet vejce.</string>
+    <string name="hatchy_hatch_window_reminder">Ocekavane okno lihnuti zacina zitra. Pripravte odchovnu.</string>
+    <string name="hatchy_brooder_temp_reminder">Kontrola odchovny: Pro kurata stara %1$d dni je doporucena teplota %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Jak se dnes dari kuratum %1$s?</string>
+    <string name="hatchy_flock_ready_reminder">Rostou rychle. Tato mlada kurata mohou byt pripravena k pridani do dospeleho hejna.</string>
+</resources>

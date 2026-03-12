@@ -1,0 +1,561 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // -------------------------
+    // Helpers
+    // -------------------------
+    function isAuth() { return request.auth != null; }
+    function uid() { return request.auth.uid; }
+
+    // Admin via custom claims (Admin SDK sets these)
+    function isSystemAdmin() {
+      return isAuth() && request.auth.token.isAdmin == true;
+    }
+
+    function isValidTier(tier) {
+      return tier == "FREE" || tier == "EXPERT" || tier == "PRO";
+    }
+
+    // Strict allow-list for SAFE user profile fields editable by the client.
+    // NOTE: NO subscription fields, NO admin/developer role flags.
+    function isSafeUserProfileUpdate() {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+        "displayName",
+        "profilePictureUrl",
+        "dateFormat",
+        "timeFormat",
+        "weightUnit",
+        "adsEnabled",
+        "preferredLanguage",
+        "lastUpdated",
+        "countryCode",
+        "currencyCode"
+      ]) && (
+        !("lastUpdated" in resource.data) ||
+        request.resource.data.lastUpdated >= resource.data.lastUpdated
+      );
+    }
+
+    // Strict allow-list for SAFE initial profile creation by client.
+    // Prevents seeding privileged/sensitive fields.
+    function isSafeUserProfileCreate(userId) {
+      return request.resource.data.userId == userId
+        && request.resource.data.createdAt != null
+        && request.resource.data.lastUpdated != null
+        && request.resource.data.countryCode != null
+        && request.resource.data.currencyCode != null
+        && request.resource.data.subscriptionTier == "FREE"
+        && isValidTier(request.resource.data.subscriptionTier)
+        && request.resource.data.keys().hasOnly([
+          "userId",
+          "displayName",
+          "profilePictureUrl",
+          "adsEnabled",
+          "createdAt",
+          "lastUpdated",
+          "termsVersionAccepted",
+          "privacyVersionAccepted",
+          "consentTimestamp",
+          "countryCode",
+          "currencyCode",
+          "subscriptionTier",
+          "dateFormat",
+          "timeFormat",
+          "weightUnit",
+          "preferredLanguage"
+        ]);
+    }
+
+    // -------------------------
+    // USERS (doc id == auth.uid)
+    // -------------------------
+    match /users/{userId} {
+
+      allow read: if isAuth() && (uid() == userId || isSystemAdmin());
+
+      allow create: if isAuth()
+        && uid() == userId
+        && isSafeUserProfileCreate(userId);
+
+      allow update: if isAuth() && (
+        (uid() == userId && isSafeUserProfileUpdate()) ||
+        isSystemAdmin()
+      );
+
+      allow delete: if isSystemAdmin();
+
+      // ---- Subcollection: Devices (user-owned) ----
+      match /devices/{deviceId} {
+        allow read: if isAuth() && uid() == userId;
+
+        allow create: if isAuth()
+          && uid() == userId
+          && request.resource.data.userId == userId
+          && (
+            !("capacityEggs" in request.resource.data) ||
+            request.resource.data.capacityEggs >= 0
+          );
+
+        allow update: if isAuth()
+          && uid() == userId
+          && request.resource.data.userId == userId
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+            "displayName",
+            "capacityEggs",
+            "notes",
+            "lastUpdated",
+            "userId"
+          ]);
+
+        allow delete: if isAuth() && uid() == userId;
+
+        // ---- Maintenance logs (owner only) ----
+        match /maintenance_logs/{logId} {
+          allow read: if isAuth() && uid() == userId;
+          allow create: if isAuth() && uid() == userId;
+          allow update: if isAuth() && uid() == userId;
+          allow delete: if isAuth() && uid() == userId;
+        }
+      }
+
+      // ---- FCM tokens (owner only) ----
+      match /fcmTokens/{tokenId} {
+        allow read: if isAuth() && uid() == userId;
+
+        allow create, update: if isAuth()
+          && uid() == userId
+          && request.resource.data.keys().hasOnly([
+            "token",
+            "platform",
+            "createdAt",
+            "lastSeenAt",
+            "appVersion"
+          ])
+          && request.resource.data.token is string
+          && request.resource.data.platform == "android";
+
+        allow delete: if isAuth() && uid() == userId;
+      }
+
+      // ---- Financial subcollections (owner only) ----
+      match /financialEntries/{entryId} {
+        allow read: if isAuth() && uid() == userId;
+
+        allow create: if isAuth()
+          && uid() == userId
+          && request.resource.data.userId == userId
+          && request.resource.data.amount >= 0
+          && request.resource.data.type in ["INCOME", "EXPENSE"];
+
+        allow update, delete: if isAuth()
+          && uid() == userId
+          && resource.data.userId == userId;
+      }
+
+      match /financialSummaries/{summaryId} {
+        allow read: if isAuth() && uid() == userId;
+
+        allow create: if isAuth()
+          && uid() == userId
+          && request.resource.data.userId == userId;
+
+        allow update, delete: if isAuth()
+          && uid() == userId
+          && resource.data.userId == userId;
+      }
+
+      // ---- Added per audit: sales batches ----
+      match /salesBatches/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      // ---- Core data sync subcollections (owner only) ----
+      match /birds/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      match /flocks/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      match /incubations/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      match /breedingScenarios/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      match /breedingActionPlans/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      match /eggProduction/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      match /breedLines/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      // ---- Added per audit: egg sales ----
+      match /eggSales/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      // Optional: if the new consolidated breeding program already exists in code,
+      // these rules prevent future permission-denied without broadening beyond owner.
+      match /breedingPrograms/{id} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+
+      match /breedingPrograms/{programId}/generations/{genId} {
+        allow read, write: if isAuth() && uid() == userId;
+      }
+    }
+
+    // -------------------------
+    // INCUBATIONS (top-level per-user)
+    // -------------------------
+    match /incubations/{incubationId} {
+      allow read: if isAuth() && resource.data.userId == uid();
+      allow create: if isAuth() && request.resource.data.userId == uid();
+
+      allow update: if isAuth()
+        && resource.data.userId == uid()
+        && request.resource.data.userId == uid();
+
+      allow delete: if isAuth() && resource.data.userId == uid();
+    }
+
+    // -------------------------
+    // TRAIT OBSERVATIONS
+    // -------------------------
+    match /traitObservations/{obsId} {
+      allow read: if isAuth() && (resource.data.userId == uid() || isSystemAdmin());
+      allow create: if isAuth() && request.resource.data.userId == uid();
+      allow update: if false;
+      allow delete: if isSystemAdmin();
+    }
+
+    // -------------------------
+    // BREEDING SCENARIOS
+    // -------------------------
+    match /breedingScenarios/{scenarioId} {
+      allow read: if isAuth() && resource.data.ownerUserId == uid();
+      allow create: if isAuth() && request.resource.data.ownerUserId == uid();
+
+      allow update: if isAuth()
+        && resource.data.ownerUserId == uid()
+        && request.resource.data.ownerUserId == uid();
+
+      allow delete: if isAuth() && resource.data.ownerUserId == uid();
+
+      match /generations/{genId} {
+        allow read, write: if isAuth()
+          && get(/databases/$(database)/documents/breedingScenarios/$(scenarioId)).data.ownerUserId == uid();
+      }
+    }
+
+    // -------------------------
+    // DEVICE CATALOG (seeded read-only)
+    // -------------------------
+    match /deviceCatalog/{doc=**} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /deviceCatalog_incubators/{id} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /deviceCatalog_hatchers/{id} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    // -------------------------
+    // SUPPORT / HELP DESK
+    // -------------------------
+    match /tickets/{ticketId} {
+      allow create: if isAuth() && request.resource.data.userId == uid();
+      allow read: if isAuth() && (resource.data.userId == uid() || isSystemAdmin());
+      allow update, delete: if isSystemAdmin();
+
+      match /internal_notes/{noteId} {
+        allow read, write: if isSystemAdmin();
+      }
+
+      match /messages/{messageId} {
+        function isTicketOwner() {
+          return isAuth()
+            && get(/databases/$(database)/documents/tickets/$(ticketId)).data.userId == uid();
+        }
+
+        allow read: if isSystemAdmin() || (isTicketOwner() && (resource.data.isInternal != true));
+
+        allow create: if isSystemAdmin() || (
+          isTicketOwner()
+          && (request.resource.data.isInternal != true)
+        );
+
+        allow update, delete: if false;
+      }
+    }
+
+    // -------------------------
+    // BREEDING SIMULATIONS (PRO FEATURE)
+    // -------------------------
+    match /breedingSimulations/{simId} {
+      allow read: if isAuth() && (resource.data.ownerId == uid() || isSystemAdmin());
+      allow create: if isAuth() && request.resource.data.ownerId == uid();
+      allow update, delete: if isSystemAdmin();
+
+      match /generations/{genId} {
+        allow read: if isAuth()
+          && get(/databases/$(database)/documents/breedingSimulations/$(simId)).data.ownerId == uid();
+
+        allow create: if isAuth()
+          && get(/databases/$(database)/documents/breedingSimulations/$(simId)).data.ownerId == uid();
+
+        allow update, delete: if isSystemAdmin();
+      }
+    }
+
+    // -------------------------
+    // COMMUNITY VALIDATION
+    // -------------------------
+    match /traitVotes/{voteId} {
+      allow read: if isAuth();
+      allow create: if isAuth() && request.resource.data.userId == uid();
+      allow update, delete: if isSystemAdmin();
+    }
+
+    match /traitConfidence/{id} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    // -------------------------
+    // COMMUNITY MODULE
+    // -------------------------
+    match /community_posts/{postId} {
+      allow read: if isAuth();
+
+      allow create: if isAuth()
+        && request.resource.data.authorId == uid();
+
+      allow update: if isAuth()
+        && (
+          resource.data.authorId == uid() ||
+          isSystemAdmin()
+        )
+        && (
+          !("authorId" in request.resource.data) ||
+          request.resource.data.authorId == resource.data.authorId
+        );
+
+      allow delete: if isAuth()
+        && (
+          resource.data.authorId == uid() ||
+          isSystemAdmin()
+        );
+
+      match /comments/{commentId} {
+        allow read: if isAuth();
+
+        allow create: if isAuth()
+          && request.resource.data.authorId == uid();
+
+        allow update: if isAuth()
+          && (
+            resource.data.authorId == uid() ||
+            isSystemAdmin()
+          )
+          && (
+            !("authorId" in request.resource.data) ||
+            request.resource.data.authorId == resource.data.authorId
+          );
+
+        allow delete: if isAuth()
+          && (
+            resource.data.authorId == uid() ||
+            isSystemAdmin()
+          );
+      }
+    }
+
+    match /community_reports/{reportId} {
+      allow create: if isAuth()
+        && request.resource.data.reporterUserId == uid();
+
+      allow read: if isSystemAdmin();
+      allow update: if isSystemAdmin();
+      allow delete: if isSystemAdmin();
+    }
+
+    match /user_block_relations/{blockId} {
+      allow read: if isAuth();
+
+      allow create: if isAuth()
+        && request.resource.data.blockerUserId == uid();
+
+      allow delete: if isAuth()
+        && resource.data.blockerUserId == uid();
+
+      allow update: if false;
+    }
+
+    // Kept only because audit showed active code may still touch it.
+    // Remove later if you fully standardize on user_block_relations.
+    match /community_user_blocks/{blockId} {
+      allow read: if isAuth();
+
+      allow create: if isAuth()
+        && request.resource.data.userId == uid();
+
+      allow delete: if isAuth()
+        && resource.data.userId == uid();
+
+      allow update: if false;
+    }
+
+    // -------------------------
+    // USER SAFETY (server/admin written only)
+    // -------------------------
+    match /user_safety_states/{userId} {
+      allow read: if isAuth() && (uid() == userId || isSystemAdmin());
+      allow write: if isSystemAdmin();
+    }
+
+    // -------------------------
+    // MARKETPLACE MODULE
+    // -------------------------
+    match /marketplace_listings/{listingId} {
+      allow read: if isAuth();
+
+      allow create: if isAuth()
+        && request.resource.data.sellerId == uid();
+
+      allow update: if isAuth()
+        && (
+          resource.data.sellerId == uid() ||
+          isSystemAdmin()
+        )
+        && (
+          !("sellerId" in request.resource.data) ||
+          request.resource.data.sellerId == resource.data.sellerId
+        );
+
+      allow delete: if isAuth()
+        && (
+          resource.data.sellerId == uid() ||
+          isSystemAdmin()
+        );
+    }
+
+    match /marketplace_sales/{saleId} {
+      allow read: if isAuth()
+        && (
+          resource.data.sellerId == uid() ||
+          resource.data.buyerId == uid() ||
+          isSystemAdmin()
+        );
+
+      allow create: if isAuth()
+        && (
+          request.resource.data.sellerId == uid() ||
+          request.resource.data.buyerId == uid()
+        );
+
+      allow update, delete: if isSystemAdmin();
+    }
+
+    // -------------------------
+    // AI INSIGHTS & PROJECTIONS
+    // -------------------------
+    match /hatchy_insight_feed_projections/{docId} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /daily_hatchbase_insight_batches/{batchId} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /daily_hatchbase_insight_items/{itemId} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    // -------------------------
+    // CONFIG & ADMIN (read authed, write admin)
+    // -------------------------
+    match /roles/{id} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /permissions/{id} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /subscriptionTiers/{id} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /featureFlags/{id} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /breedStandards/{id} {
+      allow read: if true;
+      allow write: if isSystemAdmin();
+    }
+
+    match /incubationProfiles/{id} {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin();
+    }
+
+    match /config/app_access {
+      allow read: if isAuth();
+      allow write: if isSystemAdmin()
+        && (
+          !("reviewerTier" in request.resource.data) ||
+          isValidTier(request.resource.data.reviewerTier)
+        )
+        && (
+          !("reviewerAllowlistUids" in request.resource.data) ||
+          request.resource.data.reviewerAllowlistUids.size() <= 10
+        )
+        && (
+          !("expiresAt" in request.resource.data) ||
+          request.resource.data.expiresAt == null ||
+          request.resource.data.expiresAt is int
+        );
+    }
+
+    // -------------------------
+    // AUDIT LOGS (admin append-only)
+    // -------------------------
+    match /adminAuditLogs/{logId} {
+      allow read: if isSystemAdmin();
+      allow create: if isSystemAdmin();
+      allow update, delete: if false;
+    }
+
+    // -------------------------
+    // DEFAULT DENY (safety net)
+    // -------------------------
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_name">HatchBase Benachrichtigungen</string>
+    <string name="notification_channel_description">Benachrichtigungen zu bevorstehenden Schlupfen</string>
+    <string name="notification_generic_title">Benachrichtigung</string>
+    <string name="notification_incubation_reminder_title">Inkubations-Erinnerung</string>
+    <string name="notification_nursery_reminder_title">Aufzucht-Erinnerung</string>
+    <string name="notification_unknown_bird">Unbekannter Vogel</string>
+    <string name="notification_hatch_alert_title">HatchBase Alarm</string>
+    <string name="notification_hatch_alert_text">Eier von %1$s schluepfen morgen</string>
+    <string name="notification_hatch_alert_big_text">HatchBase Alarm: Eier von %1$s schluepfen morgen (Erwartet: %2$s)</string>
+    <string name="notification_week2_title">Aufzucht-Check Woche 2</string>
+    <string name="notification_week2_message">%1$s: Temperatur, Einstreu-Trockenheit und Wachstum der Kueken pruefen.</string>
+    <string name="notification_growout_title">Bereit fuer den Aufzuchtstall</string>
+    <string name="notification_growout_message">%1$s: Die Gruppe kann heute bereit fuer den Umzug sein.</string>
+    <string name="notification_stop_turning_title">Brueter: Wenden stoppen</string>
+    <string name="notification_stop_turning_message">Heute ist der letzte Wendetag. Bereite dich auf den Lockdown morgen vor.</string>
+    <string name="notification_lockdown_title">Brueter: Lockdown-Zeit</string>
+    <string name="notification_lockdown_message">Lockdown startet heute. Luftfeuchtigkeit auf %1$d%% erhoehen und Deckel geschlossen halten.</string>
+    <string name="notification_hatch_window_title">Brueter: Schlupffenster offen</string>
+    <string name="notification_hatch_window_message">Kueken koennen bald anpicken. Bitte geduldig bleiben und den Inkubator nicht oeffnen.</string>
+    <string name="notification_cooling_start_title">Kuehlung starten</string>
+    <string name="notification_cooling_start_message">Starte die taegliche Kuehlroutine fuer %1$s-Eier.</string>
+    <string name="notification_temp_alert_title">Temperaturwarnung</string>
+    <string name="notification_temp_low_message">Temperatur zu niedrig (%.1f)</string>
+    <string name="notification_temp_high_message">Temperatur zu hoch (%.1f)</string>
+    <string name="notification_humidity_alert_title">Feuchtigkeitswarnung</string>
+    <string name="notification_humidity_low_message">Luftfeuchtigkeit zu niedrig (%1$d%%)</string>
+    <string name="notification_humidity_high_message">Luftfeuchtigkeit zu hoch (%1$d%%)</string>
+    <string name="hatchy_reminders_title">Hatchy-Erinnerung</string>
+    <string name="hatchy_lockdown_reminder">Lockdown startet morgen. Du solltest das Wenden der Eier stoppen.</string>
+    <string name="hatchy_hatch_window_reminder">Das Schlupffenster startet morgen. Bereite die Aufzuchtbox vor.</string>
+    <string name="hatchy_brooder_temp_reminder">Aufzucht-Check: Fuer %1$d Tage alte Kueken ist die empfohlene Temperatur %2$d°F.</string>
+    <string name="hatchy_nursery_growth_check">Wie geht es den %1$s-Kueken heute?</string>
+    <string name="hatchy_flock_ready_reminder">Schnelles Wachstum. Diese Jungtiere koennen bereit fuer die erwachsene Herde sein.</string>
+</resources>
