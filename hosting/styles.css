@@ -464,6 +464,21 @@ svg {
   padding-left: 18px;
 }
 
+.promo-video-card {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(241, 235, 225, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.promo-video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #0f1711;
+}
+
 .footer {
   padding: 28px 0 56px;
 }
