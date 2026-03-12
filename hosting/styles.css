@@ -389,12 +389,7 @@ svg {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.metrics-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .feature-card,
-.metric-card,
 .legal-card,
 .footer-card {
   border-radius: var(--radius-lg);
@@ -405,18 +400,15 @@ svg {
 }
 
 .feature-card,
-.metric-card,
 .footer-card {
   padding: 22px;
 }
 
-.feature-card h3,
-.metric-card strong {
+.feature-card h3 {
   margin: 0 0 10px;
 }
 
-.feature-card p,
-.metric-card span {
+.feature-card p {
   margin: 0;
   color: var(--muted);
 }
@@ -434,19 +426,11 @@ svg {
   background: linear-gradient(135deg, var(--primary-soft), var(--secondary-soft));
 }
 
-.metric-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(244, 239, 230, 0.88));
-}
-
-.metric-card strong {
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
-  font-size: 2rem;
-  color: var(--primary-strong);
-}
-
-.metric-card span {
-  display: block;
-  font-weight: 700;
 }
 
 .story-band {
@@ -485,7 +469,7 @@ svg {
 }
 
 .footer-grid {
-  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(180px, 0.8fr));
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.9fr);
 }
 
 .footer-card h3,
@@ -603,8 +587,7 @@ svg {
   .hero-grid,
   .story-band-grid,
   .footer-grid,
-  .feature-grid,
-  .metrics-grid {
+  .feature-grid {
     grid-template-columns: 1fr;
   }
 
