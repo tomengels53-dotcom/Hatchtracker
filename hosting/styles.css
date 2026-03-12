@@ -283,8 +283,8 @@ svg {
 }
 
 .screen-header,
-.screen-stat,
-.timeline-step,
+.device-carousel,
+.device-caption,
 .feature-card,
 .legal-card,
 .footer-card {
@@ -307,53 +307,56 @@ svg {
   color: rgba(226, 227, 221, 0.74);
 }
 
-.screen-grid {
-  display: grid;
-  gap: 14px;
+.screen-header-live {
+  margin-bottom: 14px;
 }
 
-.screen-stat {
-  padding: 16px;
+.pill-live {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f6f1e9;
+}
+
+.device-carousel {
+  position: relative;
+  overflow: hidden;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(152, 209, 160, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.screen-stat strong {
+.device-carousel img {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  object-fit: cover;
+  object-position: top center;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.device-carousel img.is-transitioning {
+  opacity: 0.24;
+  transform: scale(0.985);
+}
+
+.device-caption {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(152, 209, 160, 0.15);
+}
+
+.device-caption strong {
   display: block;
-  font-size: 1.65rem;
+  font-size: 1.05rem;
   color: #fff;
 }
 
-.screen-stat span {
-  display: block;
-  color: rgba(226, 227, 221, 0.76);
+.device-caption p {
+  margin: 6px 0 0;
+  color: rgba(226, 227, 221, 0.8);
   font-size: 0.94rem;
-}
-
-.screen-stat.warm {
-  background: rgba(230, 190, 160, 0.12);
-  border-color: rgba(230, 190, 160, 0.22);
-}
-
-.timeline-mini {
-  display: grid;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-.timeline-step {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 12px 14px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.timeline-step b {
-  min-width: 64px;
-  color: #f9e297;
 }
 
 .section {
@@ -404,10 +407,6 @@ svg {
   padding: 22px;
 }
 
-.feature-card {
-  overflow: hidden;
-}
-
 .feature-card h3 {
   margin: 0 0 10px;
 }
@@ -415,15 +414,6 @@ svg {
 .feature-card p {
   margin: 0;
   color: var(--muted);
-}
-
-.feature-shot {
-  width: calc(100% + 44px);
-  margin: -22px -22px 18px;
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
-  border-bottom: 1px solid var(--line);
-  background: #e7dfd0;
 }
 
 .feature-icon {
