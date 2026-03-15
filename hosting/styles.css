@@ -467,6 +467,113 @@ svg {
   padding-left: 18px;
 }
 
+.community-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+  gap: 26px;
+  align-items: center;
+  padding: 30px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(241, 235, 225, 0.92)),
+    var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.community-band h2 {
+  margin: 14px 0 12px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.community-band p {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--muted);
+}
+
+.community-note {
+  margin-top: 16px;
+  font-size: 0.98rem;
+}
+
+.community-preview {
+  padding: 14px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #21412d, #12261d);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 40px rgba(18, 38, 29, 0.32);
+}
+
+.community-preview-screen {
+  padding: 18px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(212, 232, 209, 0.28), transparent 28%),
+    #102018;
+  color: #e2e3dd;
+}
+
+.community-preview-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.feature-icon-community {
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.community-preview-header strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.community-preview-header span {
+  color: rgba(226, 227, 221, 0.74);
+  font-size: 0.92rem;
+}
+
+.community-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f6f1e9;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.community-dialog {
+  margin-top: 18px;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(247, 242, 232, 0.98);
+  color: var(--text);
+  box-shadow: 0 14px 30px rgba(10, 20, 14, 0.18);
+}
+
+.community-dialog strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.65rem;
+  line-height: 1.08;
+}
+
+.community-dialog p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .cta-band {
   padding: 30px;
   border-radius: var(--radius-xl);
@@ -639,6 +746,7 @@ svg {
 
 @media (max-width: 960px) {
   .hero-grid,
+  .community-band,
   .story-band-grid,
   .footer-grid,
   .feature-grid {
@@ -666,6 +774,7 @@ svg {
   }
 
   .hero-card,
+  .community-band,
   .cta-band,
   .story-band,
   .legal-card {
