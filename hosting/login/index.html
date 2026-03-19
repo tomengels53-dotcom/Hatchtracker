@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In | HatchBase</title>
+  <meta
+    name="description"
+    content="Log in to HatchBase on the web using the same account you use in the Android app."
+  />
+  <link rel="icon" type="image/png" href="/assets/hatchbase-logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="/assets/hatchbase-logo.png" alt="" />
+        </span>
+        <span class="brand-copy">
+          <strong>HatchBase</strong>
+          <span>Expert Poultry Management</span>
+        </span>
+      </a>
+      <nav class="topnav legal-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="auth-wrap">
+    <div class="site-shell auth-grid">
+      <section class="auth-intro">
+        <div class="eyebrow">Shared Account Access</div>
+        <h1>Log in with your HatchBase app account</h1>
+        <p>
+          The website uses the same Firebase account system as the Android app. If you already use
+          HatchBase on mobile, sign in here with the same email/password or Google account.
+        </p>
+        <div class="auth-points">
+          <div class="auth-point">
+            <strong>Same identity</strong>
+            <span>Your app account and web account are the same user.</span>
+          </div>
+          <div class="auth-point">
+            <strong>Same profile record</strong>
+            <span>Website access reads the same `users/{uid}` profile document used by the app.</span>
+          </div>
+          <div class="auth-point">
+            <strong>Future-ready</strong>
+            <span>This prepares the site for authenticated web features without creating a separate account system.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-card">
+        <div class="auth-card-header">
+          <h2>Account Access</h2>
+          <p>Use the same sign-in method you use in the app.</p>
+        </div>
+
+        <form id="login-form" class="auth-form">
+          <label class="auth-field">
+            <span>Email</span>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </label>
+
+          <label class="auth-field">
+            <span>Password</span>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+
+          <button id="email-login-button" class="button-link auth-submit" type="submit">
+            Log In
+          </button>
+        </form>
+
+        <div class="auth-divider">
+          <span>or</span>
+        </div>
+
+        <button id="google-login-button" class="button-link-secondary auth-submit" type="button">
+          Continue with Google
+        </button>
+
+        <button id="reset-password-button" class="auth-link-button" type="button">
+          Send password reset email
+        </button>
+
+        <p id="auth-message" class="auth-message" hidden></p>
+        <p id="auth-error" class="auth-error" hidden></p>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="/assets/firebase-client.js"></script>
+  <script type="module" src="/assets/login.js"></script>
+</body>
+</html>

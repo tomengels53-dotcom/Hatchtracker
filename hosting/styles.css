@@ -610,6 +610,232 @@ svg {
   font-size: 0.95rem;
 }
 
+.auth-wrap,
+.portal-wrap {
+  padding: 56px 0 72px;
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.auth-intro,
+.auth-card,
+.portal-card,
+.portal-hero {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(241, 235, 225, 0.92)),
+    var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.auth-intro,
+.auth-card,
+.portal-card,
+.portal-hero {
+  padding: 30px;
+}
+
+.auth-intro h1,
+.portal-hero h1 {
+  margin: 14px 0 12px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.auth-intro p,
+.auth-card p,
+.portal-card p,
+.portal-hero p {
+  color: var(--muted);
+}
+
+.auth-points {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.auth-point {
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.auth-point strong,
+.portal-feature strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.auth-point span,
+.portal-feature span {
+  color: var(--muted);
+}
+
+.auth-card-header h2,
+.portal-card h2 {
+  margin: 0 0 8px;
+}
+
+.auth-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.auth-field {
+  display: grid;
+  gap: 8px;
+}
+
+.auth-field span,
+.portal-details dt {
+  font-weight: 700;
+  color: var(--primary-strong);
+}
+
+.auth-field input {
+  min-height: 52px;
+  padding: 0 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+  font: inherit;
+}
+
+.auth-field input:focus {
+  outline: 2px solid rgba(47, 93, 58, 0.18);
+  border-color: rgba(47, 93, 58, 0.32);
+}
+
+.auth-submit {
+  width: 100%;
+}
+
+.auth-submit:disabled,
+.auth-link-button:disabled,
+.topnav-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-divider {
+  position: relative;
+  margin: 18px 0;
+  text-align: center;
+}
+
+.auth-divider::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  border-top: 1px solid var(--line);
+}
+
+.auth-divider span {
+  position: relative;
+  padding: 0 12px;
+  background: rgba(245, 239, 230, 0.96);
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.auth-link-button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.auth-link-button {
+  margin-top: 14px;
+  padding: 0;
+  color: var(--primary);
+  font-weight: 700;
+  text-align: left;
+}
+
+.topnav-button {
+  appearance: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.auth-message,
+.auth-error,
+.portal-note {
+  margin-top: 16px;
+}
+
+.auth-message {
+  color: var(--primary-strong);
+  font-weight: 700;
+}
+
+.auth-error {
+  color: #8b2326;
+  font-weight: 700;
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.portal-card-wide,
+.portal-hero {
+  grid-column: 1 / -1;
+}
+
+.portal-details {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 0;
+}
+
+.portal-details div {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid var(--line);
+}
+
+.portal-details dt {
+  margin-bottom: 4px;
+}
+
+.portal-details dd {
+  margin: 0;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.portal-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.portal-feature {
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.56);
+}
+
 .promo-video-card {
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -746,6 +972,9 @@ svg {
 
 @media (max-width: 960px) {
   .hero-grid,
+  .auth-grid,
+  .portal-grid,
+  .portal-feature-grid,
   .community-band,
   .story-band-grid,
   .footer-grid,

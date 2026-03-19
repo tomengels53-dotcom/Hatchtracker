@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal | HatchBase</title>
+  <meta
+    name="description"
+    content="Authenticated HatchBase website area for users who already have an app account."
+  />
+  <link rel="icon" type="image/png" href="/assets/hatchbase-logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="/assets/hatchbase-logo.png" alt="" />
+        </span>
+        <span class="brand-copy">
+          <strong>HatchBase</strong>
+          <span>Expert Poultry Management</span>
+        </span>
+      </a>
+      <nav class="topnav legal-nav" aria-label="Portal navigation">
+        <a href="/">Home</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <button id="sign-out-button" class="button-link-secondary topnav-button" type="button">
+          Sign Out
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="portal-wrap">
+    <div class="site-shell portal-grid">
+      <section class="portal-hero">
+        <div class="eyebrow">Authenticated Website Access</div>
+        <h1>Website account connection is live</h1>
+        <p>
+          You are signed in with the same HatchBase identity used in the Android app. This portal is
+          the placeholder landing area for upcoming authenticated web features.
+        </p>
+      </section>
+
+      <section class="portal-card">
+        <h2>Your session</h2>
+        <dl class="portal-details">
+          <div>
+            <dt>Name</dt>
+            <dd id="portal-name">Loading...</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd id="portal-email">Loading...</dd>
+          </div>
+          <div>
+            <dt>User ID</dt>
+            <dd id="portal-uid">Loading...</dd>
+          </div>
+          <div>
+            <dt>Subscription Tier</dt>
+            <dd id="portal-tier">Loading...</dd>
+          </div>
+          <div>
+            <dt>Preferred Language</dt>
+            <dd id="portal-language">Loading...</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="portal-card portal-card-wide">
+        <h2>Next web features</h2>
+        <div class="portal-feature-grid">
+          <article class="portal-feature">
+            <strong>Dashboard</strong>
+            <span>Authenticated summaries and account-aware website modules.</span>
+          </article>
+          <article class="portal-feature">
+            <strong>Connected Data</strong>
+            <span>Read the same user profile and app-linked data model already used on mobile.</span>
+          </article>
+          <article class="portal-feature">
+            <strong>Role-aware Access</strong>
+            <span>Ready for future premium or admin-aware website features using the same account backend.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="portal-card portal-card-wide">
+        <h2>Current status</h2>
+        <p class="portal-note">
+          Login is connected. The authenticated page is intentionally minimal for now so the account
+          and profile wiring is in place before the website feature set is expanded.
+        </p>
+        <p id="portal-error" class="auth-error" hidden></p>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="/assets/firebase-client.js"></script>
+  <script type="module" src="/assets/portal.js"></script>
+</body>
+</html>
